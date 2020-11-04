@@ -6,10 +6,19 @@
     <description>Recent content on Toby&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 04 Nov 2020 10:18:30 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 04 Nov 2020 21:48:23 +0800</lastBuildDate>
     
 	<atom:link href="http://xwkwh.github.io/hugo/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>About</title>
+      <link>http://xwkwh.github.io/hugo/about/</link>
+      <pubDate>Wed, 04 Nov 2020 21:48:23 +0800</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/about/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>My First Post</title>
@@ -18,6 +27,15 @@
       
       <guid>http://xwkwh.github.io/hugo/posts/my-first-post/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>Linux Shell Learning</title>
+      <link>http://xwkwh.github.io/hugo/posts/linux-shell/</link>
+      <pubDate>Thu, 02 Jan 2020 21:10:26 +0000</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/posts/linux-shell/</guid>
+      <description>Base chsh change shell To Know shells installed $ cat /etc/shells # List of acceptable shells for chpass(1). # Ftpd will not allow users to connect who are not using # one of these shells. /bin/bash /bin/csh /bin/dash /bin/ksh /bin/sh /bin/tcsh /bin/zsh check current shell $ echo $SHELL /bin/zsh change shell in all environment $ chsh -s /bin/zsh Changing shell for xwk. Password for xwk: chsh: no changes made export: change environment variable export output all environment variable $ export CLICOLOR=1 COLORFGBG=&amp;#39;7;0&amp;#39; COLORTERM=truecolor COMMAND_MODE=unix2003 GOBIN=/Users/xwk/gopath/bin GOPATH=/Users/xwk/gopath GOROOT=/usr/local/go HOME=/Users/xwk HOMEBREW_BOTTLE_DOMAIN=https://mirrors.</description>
     </item>
     
   </channel>

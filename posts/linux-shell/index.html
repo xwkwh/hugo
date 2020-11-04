@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Linux Shell Learning | Toby&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Base chsh change shell To Know shells installed $ cat /etc/shells # List of acceptable shells for chpass(1). # Ftpd will not allow users to connect who are not using # one of these shells. /bin/bash /bin/csh /bin/dash /bin/ksh /bin/sh /bin/tcsh /bin/zsh check current shell $ echo $SHELL /bin/zsh change shell in all environment $ chsh -s /bin/zsh Changing shell for xwk. Password for xwk: chsh: no changes made export: change environment variable export output all environment variable $ export CLICOLOR=1 COLORFGBG=&#39;7;0&#39; COLORTERM=truecolor COMMAND_MODE=unix2003 GOBIN=/Users/xwk/gopath/bin GOPATH=/Users/xwk/gopath GOROOT=/usr/local/go HOME=/Users/xwk HOMEBREW_BOTTLE_DOMAIN=https://mirrors.">
+    <meta name="generator" content="Hugo 0.71.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/hugo/dist/css/app.4fc0b62e4b82c997bb0041217cd6b979.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Linux Shell Learning" />
+<meta property="og:description" content="Base chsh change shell To Know shells installed $ cat /etc/shells # List of acceptable shells for chpass(1). # Ftpd will not allow users to connect who are not using # one of these shells. /bin/bash /bin/csh /bin/dash /bin/ksh /bin/sh /bin/tcsh /bin/zsh check current shell $ echo $SHELL /bin/zsh change shell in all environment $ chsh -s /bin/zsh Changing shell for xwk. Password for xwk: chsh: no changes made export: change environment variable export output all environment variable $ export CLICOLOR=1 COLORFGBG=&#39;7;0&#39; COLORTERM=truecolor COMMAND_MODE=unix2003 GOBIN=/Users/xwk/gopath/bin GOPATH=/Users/xwk/gopath GOROOT=/usr/local/go HOME=/Users/xwk HOMEBREW_BOTTLE_DOMAIN=https://mirrors." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://xwkwh.github.io/hugo/posts/linux-shell/" />
+<meta property="article:published_time" content="2020-01-02T21:10:26+00:00" />
+<meta property="article:modified_time" content="2020-01-02T21:10:26+00:00" />
+<meta itemprop="name" content="Linux Shell Learning">
+<meta itemprop="description" content="Base chsh change shell To Know shells installed $ cat /etc/shells # List of acceptable shells for chpass(1). # Ftpd will not allow users to connect who are not using # one of these shells. /bin/bash /bin/csh /bin/dash /bin/ksh /bin/sh /bin/tcsh /bin/zsh check current shell $ echo $SHELL /bin/zsh change shell in all environment $ chsh -s /bin/zsh Changing shell for xwk. Password for xwk: chsh: no changes made export: change environment variable export output all environment variable $ export CLICOLOR=1 COLORFGBG=&#39;7;0&#39; COLORTERM=truecolor COMMAND_MODE=unix2003 GOBIN=/Users/xwk/gopath/bin GOPATH=/Users/xwk/gopath GOROOT=/usr/local/go HOME=/Users/xwk HOMEBREW_BOTTLE_DOMAIN=https://mirrors.">
+<meta itemprop="datePublished" content="2020-01-02T21:10:26&#43;00:00" />
+<meta itemprop="dateModified" content="2020-01-02T21:10:26&#43;00:00" />
+<meta itemprop="wordCount" content="793">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux Shell Learning"/>
+<meta name="twitter:description" content="Base chsh change shell To Know shells installed $ cat /etc/shells # List of acceptable shells for chpass(1). # Ftpd will not allow users to connect who are not using # one of these shells. /bin/bash /bin/csh /bin/dash /bin/ksh /bin/sh /bin/tcsh /bin/zsh check current shell $ echo $SHELL /bin/zsh change shell in all environment $ chsh -s /bin/zsh Changing shell for xwk. Password for xwk: chsh: no changes made export: change environment variable export output all environment variable $ export CLICOLOR=1 COLORFGBG=&#39;7;0&#39; COLORTERM=truecolor COMMAND_MODE=unix2003 GOBIN=/Users/xwk/gopath/bin GOPATH=/Users/xwk/gopath GOROOT=/usr/local/go HOME=/Users/xwk HOMEBREW_BOTTLE_DOMAIN=https://mirrors."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/hugo/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Toby&#39;s Blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=http://xwkwh.github.io/hugo/posts/linux-shell/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=http://xwkwh.github.io/hugo/posts/linux-shell/&amp;text=Linux%20Shell%20Learning" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://xwkwh.github.io/hugo/posts/linux-shell/&amp;title=Linux%20Shell%20Learning" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Linux Shell Learning</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-01-02T21:10:26Z">January 2, 2020</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="base">Base</h1>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="chsh-change-shell">chsh change shell</h2>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="to-know-shells-installed">To Know shells installed</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ cat /etc/shells
+<span style="color:#75715e"># List of acceptable shells for chpass(1).</span>
+<span style="color:#75715e"># Ftpd will not allow users to connect who are not using</span>
+<span style="color:#75715e"># one of these shells.</span>
+
+/bin/bash
+/bin/csh
+/bin/dash
+/bin/ksh
+/bin/sh
+/bin/tcsh
+/bin/zsh
+</code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="check-current-shell">check current shell</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ echo $SHELL
+/bin/zsh
+</code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="change-shell-in-all-environment">change shell in all environment</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ chsh -s /bin/zsh
+Changing shell <span style="color:#66d9ef">for</span> xwk.
+Password <span style="color:#66d9ef">for</span> xwk:
+chsh: no changes made
+</code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="export-change-environment-variable">export: change environment variable</h2>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="export-output-all-environment-variable">export output all environment variable</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ export
+CLICOLOR<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+COLORFGBG<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;7;0&#39;</span>
+COLORTERM<span style="color:#f92672">=</span>truecolor
+COMMAND_MODE<span style="color:#f92672">=</span>unix2003
+GOBIN<span style="color:#f92672">=</span>/Users/xwk/gopath/bin
+GOPATH<span style="color:#f92672">=</span>/Users/xwk/gopath
+GOROOT<span style="color:#f92672">=</span>/usr/local/go
+HOME<span style="color:#f92672">=</span>/Users/xwk
+HOMEBREW_BOTTLE_DOMAIN<span style="color:#f92672">=</span>https://mirrors.cloud.tencent.com/homebrew-bottles
+HOMEBREW_NO_AUTO_UPDATE<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+ITERM_PROFILE<span style="color:#f92672">=</span>Default
+ITERM_SESSION_ID<span style="color:#f92672">=</span>w0t1p0:5212F532-B525-4B5D-BB6E-238806196C29
+LANG<span style="color:#f92672">=</span>zh_CN.UTF-8
+LC_ALL<span style="color:#f92672">=</span>zh_CN.UTF-8
+LC_TERMINAL<span style="color:#f92672">=</span>iTerm2
+LC_TERMINAL_VERSION<span style="color:#f92672">=</span>3.3.7beta1
+LESS<span style="color:#f92672">=</span>-R
+LOGNAME<span style="color:#f92672">=</span>xwk
+LSCOLORS<span style="color:#f92672">=</span>gxfxbEaEBxxEhEhBaDaCaD
+LaunchInstanceID<span style="color:#f92672">=</span>3E754314-9261-4388-9A0E-2FC388411C15
+OLDPWD<span style="color:#f92672">=</span>/Users/xwk
+PAGER<span style="color:#f92672">=</span>less
+PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;/Applications/MacVim.app/Contents/bin:/bin:/usr/bin:/usr/local/bin:/Applications/MacVim.app/Contents/bin:/bin:/usr/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public:/usr/local/go/bin:/Users/xwk/gopath/bin:/Users/xwk/.fzf/bin:/Users/xwk/gopath/bin&#39;</span>
+PWD<span style="color:#f92672">=</span>/etc
+SECURITYSESSIONID<span style="color:#f92672">=</span><span style="color:#ae81ff">18778</span>
+SHELL<span style="color:#f92672">=</span>/bin/zsh
+SHLVL<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>
+</code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="difference-of-envsetexportdeclare">Difference of env/set/export/declare</h3>
+<ol>
+<li>
+<p>shell variabel</p>
+<ul>
+<li>envionment variable</li>
+<li>custom variable</li>
+</ul>
+</li>
+<li>
+<p>Difference</p>
+<ul>
+<li>env: current user environment variable</li>
+<li>export: same as env, but output sort by name</li>
+<li>set: all variable in this shell</li>
+<li>declare: same as set, but output sort by name</li>
+</ul>
+</li>
+<li>
+<p>Conclusion</p>
+<ul>
+<li>env/export: show environment variable</li>
+<li>set/decare: show all variable</li>
+</ul>
+</li>
+</ol>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="set-environment-variable">set environment variable</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">export PATH<span style="color:#f92672">=</span>$PATH:/bin
+</code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="roles-of-export">Roles of export</h3>
+<p>set environment variable</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ guopu<span style="color:#f92672">=</span><span style="color:#ae81ff">123</span>
+$ echo $guopu
+<span style="color:#ae81ff">123</span>
+$ xwk<span style="color:#f92672">=</span><span style="color:#ae81ff">456</span>
+$ echo $xwk
+<span style="color:#ae81ff">456</span>
+$ export guopu
+$ dash
+$ echo $guopu
+<span style="color:#ae81ff">123</span>
+$ echo $xwk
+
+</code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="read">read</h2>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="listen-from-keyboard">listen from keyboard</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>read -p <span style="color:#e6db74">&#34;Please input your name and age:&#34;</span> name age
+echo <span style="color:#e6db74">&#34;Welcome !!! </span>$name<span style="color:#e6db74"> is </span>$age<span style="color:#e6db74">&#34;</span>
+exit <span style="color:#ae81ff">0</span>
+</code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="read-but-time-limit">read but time limit</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">if</span> read -t <span style="color:#ae81ff">3</span> -p <span style="color:#e6db74">&#34;Please input your name and age within 3s:&#34;</span> name age
+<span style="color:#66d9ef">then</span>
+    echo <span style="color:#e6db74">&#34;Welcome !!! </span>$name<span style="color:#e6db74"> is </span>$age<span style="color:#e6db74">&#34;</span>
+<span style="color:#66d9ef">else</span>
+    echo <span style="color:#e6db74">&#34;Sorry too slow!&#34;</span>
+<span style="color:#66d9ef">fi</span>
+exit <span style="color:#ae81ff">0</span>
+</code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="password-input">password input</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">read  -s -p <span style="color:#e6db74">&#34;Plese input passwd: &#34;</span> passwd
+echo <span style="color:#e6db74">&#34;you input: </span>$passwd<span style="color:#e6db74">&#34;</span>
+exit <span style="color:#ae81ff">0</span>
+</code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="read-from-file">read from file</h3>
+<ul>
+<li>&amp;- close standard output eg: file fd</li>
+</ul>
+<ol>
+<li>
+<p>Solution 1: read -u</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span><span style="color:#75715e"># assign the file desciptor to file for input fd # 3 is Input file</span>
+exec 3&lt; test.sh
+    
+<span style="color:#75715e"># read  the file using fd # 3</span>
+count<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+<span style="color:#66d9ef">while</span> read -u <span style="color:#ae81ff">3</span> var
+<span style="color:#66d9ef">do</span>
+    let count<span style="color:#f92672">=</span>$count+1
+    echo <span style="color:#e6db74">&#34;LIne </span>$count<span style="color:#e6db74">: </span>$var<span style="color:#e6db74">&#34;</span>
+<span style="color:#66d9ef">done</span>
+echo <span style="color:#e6db74">&#34;finished&#34;</span>
+echo <span style="color:#e6db74">&#34;LIne num is </span>$count<span style="color:#e6db74">&#34;</span>
+    
+<span style="color:#75715e"># close fd</span>
+exec 3&lt;&amp;-
+    
+</code></pre></div></li>
+<li>
+<p>Solution 2: pipeline |</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">count<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+cat test.sh | <span style="color:#66d9ef">while</span> read line
+<span style="color:#66d9ef">do</span>
+    let count<span style="color:#f92672">=</span>$count+1
+    echo <span style="color:#e6db74">&#34;Line </span>$count<span style="color:#e6db74">: </span>$line<span style="color:#e6db74">&#34;</span>
+<span style="color:#66d9ef">done</span>
+exit <span style="color:#ae81ff">0</span>
+    
+</code></pre></div></li>
+<li>
+<p>Solution 3: redirect &lt;</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">count<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+<span style="color:#66d9ef">while</span> read line
+<span style="color:#66d9ef">do</span>
+    let count<span style="color:#f92672">=</span>$count+1
+    echo <span style="color:#e6db74">&#34;Line </span>$count<span style="color:#e6db74">: </span>$line<span style="color:#e6db74">&#34;</span>
+<span style="color:#66d9ef">done</span> &lt; test.sh
+echo <span style="color:#e6db74">&#34;count: </span>$count<span style="color:#e6db74">&#34;</span>
+exit <span style="color:#ae81ff">0</span>
+</code></pre></div></li>
+</ol>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="line-break">Line break</h3>
+<p>Do not let backslash (\) act as an escape character read -r variable</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="expr-calculation">expr: calculation</h2>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="-">+-*/</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>expr <span style="color:#ae81ff">10</span> + <span style="color:#ae81ff">10</span>
+expr <span style="color:#ae81ff">20</span> - <span style="color:#ae81ff">10</span>
+expr <span style="color:#ae81ff">30</span> / <span style="color:#ae81ff">10</span>
+<span style="color:#75715e"># * is the special character</span>
+expr <span style="color:#ae81ff">10</span> <span style="color:#ae81ff">\*</span> <span style="color:#ae81ff">3</span> 
+expr <span style="color:#ae81ff">\(</span> <span style="color:#ae81ff">3</span> + <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">\)</span> <span style="color:#ae81ff">\*</span> <span style="color:#ae81ff">3</span> + <span style="color:#ae81ff">10</span>
+</code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="operate-string">operate string</h3>
+<table>
+<thead>
+<tr>
+<th>运算</th>
+<th>表达式</th>
+<th>意义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>match</td>
+<td>match STRING REGEXP</td>
+<td>STRING中匹配REGEXP的字符串返回匹配的长度</td>
+</tr>
+<tr>
+<td>substr</td>
+<td>substr STRING POS LEN</td>
+<td>从POS位置截取LEN长度字符串</td>
+</tr>
+<tr>
+<td>index</td>
+<td>index STRING SUBSTR</td>
+<td>查找子字符串的起始位置</td>
+</tr>
+<tr>
+<td>length</td>
+<td>length STRING</td>
+<td>字符串的长度</td>
+</tr>
+</tbody>
+</table>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="tmux-multi-windows-and-session">tmux: multi windows and session</h2>
+<p>Terminal MultipleXer</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="trouble-can-solve">trouble can solve</h3>
+<ul>
+<li>big data transporting while disconnected</li>
+<li>compiling and runing but over</li>
+<li>multi windows</li>
+</ul>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="usage">Usage</h3>
+<ol>
+<li>
+<p>run</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">tmux new -s session_name
+</code></pre></div></li>
+<li>
+<p>create again</p>
+<ul>
+<li>Ctr-b</li>
+<li>c</li>
+</ul>
+</li>
+<li>
+<p>switch windows</p>
+<ul>
+<li>C-b</li>
+<li>number (the window)</li>
+</ul>
+</li>
+<li>
+<p>quit</p>
+<ul>
+<li>C-b d</li>
+</ul>
+</li>
+<li>
+<p>back</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ tmux ls
+0: <span style="color:#ae81ff">1</span> windows <span style="color:#f92672">(</span>created Sat Feb <span style="color:#ae81ff">29</span> 23:30:39 2020<span style="color:#f92672">)</span>
+hello: <span style="color:#ae81ff">4</span> windows <span style="color:#f92672">(</span>created Sat Feb <span style="color:#ae81ff">29</span> 23:44:30 2020<span style="color:#f92672">)</span>
+    
+$ tmux a -t hello
+</code></pre></div></li>
+<li>
+<p>other</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>type</th>
+<th>operate</th>
+<th>comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pane</td>
+<td>%</td>
+<td>split horizon</td>
+</tr>
+<tr>
+<td></td>
+<td>&quot;</td>
+<td>split vertical</td>
+</tr>
+<tr>
+<td></td>
+<td>x</td>
+<td>close current</td>
+</tr>
+<tr>
+<td></td>
+<td>{</td>
+<td>current forward</td>
+</tr>
+<tr>
+<td></td>
+<td>}</td>
+<td>current backward</td>
+</tr>
+<tr>
+<td></td>
+<td>;</td>
+<td>switch pre pane</td>
+</tr>
+<tr>
+<td></td>
+<td>o</td>
+<td>next pane(also up/down/left/right)</td>
+</tr>
+<tr>
+<td></td>
+<td>space</td>
+<td>switch layout</td>
+</tr>
+<tr>
+<td></td>
+<td>z</td>
+<td>max current;again z recover</td>
+</tr>
+<tr>
+<td></td>
+<td>q</td>
+<td>show all pane number</td>
+</tr>
+<tr>
+<td>window</td>
+<td>c</td>
+<td>new window</td>
+</tr>
+<tr>
+<td></td>
+<td>p</td>
+<td>pre window</td>
+</tr>
+<tr>
+<td></td>
+<td>n</td>
+<td>nex window</td>
+</tr>
+<tr>
+<td></td>
+<td>w</td>
+<td>window list</td>
+</tr>
+<tr>
+<td></td>
+<td>&amp;</td>
+<td>close current</td>
+</tr>
+<tr>
+<td></td>
+<td>,</td>
+<td>rename window</td>
+</tr>
+<tr>
+<td></td>
+<td>number</td>
+<td>switch window</td>
+</tr>
+<tr>
+<td></td>
+<td>f</td>
+<td>search window</td>
+</tr>
+</tbody>
+</table>
+<pre><code>```shell
+tmux new -s foo # 新建名称为 foo 的会话
+tmux ls # 列出所有 tmux 会话
+tmux a # 恢复至上一次的会话
+tmux a -t foo # 恢复名称为 foo 的会话，会话默认名称为数字
+tmux kill-session -t foo # 删除名称为 foo 的会话
+tmux kill-server # 删除所有的会话
+```
+</code></pre>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="alias">alias</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># set alias</span>
+alias name<span style="color:#f92672">=</span>value <span style="color:#75715e"># = before and after don&#39;t have space</span>
+<span style="color:#75715e"># show all alias</span>
+alias
+alias gomodon
+<span style="color:#75715e"># delete alias</span>
+unalias vi
+unalias -a <span style="color:#75715e"># delete all</span> 
+</code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="history">history</h2>
+<ul>
+<li>show time export HISTTIMEFORMAT=&rsquo;%F %T&rsquo;</li>
+<li>repeat action C-p</li>
+<li>clear history -c</li>
+</ul>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="xargs">xargs</h2>
+<p>execute arguments</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="pipleline">pipleline</h3>
+<p>pipleline can use pre input as after input but cann&rsquo;t use it as arguments eg:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">➜  ~ echo test.log | cat
+test.log
+➜  ~ echo test.log | xargs cat
+hello luojilab
+</code></pre></div><p>xargs default see &lsquo;enter tab space&rsquo; as space use &lsquo;xargs -0 &lsquo;can change it as NULL</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="xargs--p-yn">xargs -p :y/n</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">~ echo test.log | xargs -p cat
+cat test.log ?...y
+hello luojilab
+</code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="xargs--e-quit">xargs -E quit</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">➜  ~ cat test.log
+hello he hhh yy
+➜  ~ cat test.log| xargs -E <span style="color:#e6db74">&#34;hhh&#34;</span> echo
+hello he
+</code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="time">time</h2>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="time-a-simple-command-or-give-resource-usage">time a simple command or give resource usage</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>root@BJ-DEV-GO ledgers<span style="color:#f92672">]</span><span style="color:#75715e"># time grep mockUids ledgers.log</span>
+
+real	0m0.164s
+user	0m0.099s
+sys	0m0.046s
+</code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="sleep">sleep</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ date;sleep 30s;date
+2020年 3月 1日 星期日 16时16分41秒 CST
+2020年 3月 1日 星期日 16时17分11秒 CST
+</code></pre></div><p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="file">FIle</h1>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h1 id="text">Text</h1>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://xwkwh.github.io/hugo" >
+    &copy;  Toby's Blog 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/hugo/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>
