@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="Toby">
+    <meta name="description" content="选择排序分为 简单选择排序 和 堆排序
+简单选择排序 public static void selectSort(int[] a) { int len = a.length; for (int k = 0; k &lt; len; k&#43;&#43;) { int min = k; for (int i = k &#43; 1; i &lt; len; i&#43;&#43;) { if (a[i] &lt; a[min]) { min = i; } } if (k != min) { int temp = a[k]; a[k] = a[min]; a[min] = temp; } } printSort(a); }  堆排序 堆 一般指二叉堆，(由于其它几种堆（二项式堆，斐波纳契堆等）用的较少，一般将二叉堆就简称为 堆), 二叉堆是完全二叉树或近似完全二叉树">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="选择排序"/>
+<meta name="twitter:description" content="选择排序分为 简单选择排序 和 堆排序
+简单选择排序 public static void selectSort(int[] a) { int len = a.length; for (int k = 0; k &lt; len; k&#43;&#43;) { int min = k; for (int i = k &#43; 1; i &lt; len; i&#43;&#43;) { if (a[i] &lt; a[min]) { min = i; } } if (k != min) { int temp = a[k]; a[k] = a[min]; a[min] = temp; } } printSort(a); }  堆排序 堆 一般指二叉堆，(由于其它几种堆（二项式堆，斐波纳契堆等）用的较少，一般将二叉堆就简称为 堆), 二叉堆是完全二叉树或近似完全二叉树"/>
+
+    <meta property="og:title" content="选择排序" />
+<meta property="og:description" content="选择排序分为 简单选择排序 和 堆排序
+简单选择排序 public static void selectSort(int[] a) { int len = a.length; for (int k = 0; k &lt; len; k&#43;&#43;) { int min = k; for (int i = k &#43; 1; i &lt; len; i&#43;&#43;) { if (a[i] &lt; a[min]) { min = i; } } if (k != min) { int temp = a[k]; a[k] = a[min]; a[min] = temp; } } printSort(a); }  堆排序 堆 一般指二叉堆，(由于其它几种堆（二项式堆，斐波纳契堆等）用的较少，一般将二叉堆就简称为 堆), 二叉堆是完全二叉树或近似完全二叉树" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://xwkwh.github.io/hugo/posts/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/" />
+<meta property="article:published_time" content="2016-09-06T20:11:20+00:00" />
+<meta property="article:modified_time" content="2016-09-06T20:11:20+00:00" />
+
+
+    <title>
+  选择排序 · Toby
+</title>
+
+    
+      <link rel="canonical" href="http://xwkwh.github.io/hugo/posts/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css" integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="/hugo/css/coder.min.f01c647a0d25b40da992a37c3376291185eed8a50ced8c26cc2c0bcfe38c97df.css" integrity="sha256-8Bxkeg0ltA2pkqN8M3YpEYXu2KUM7YwmzCwLz&#43;OMl98=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="/hugo/css/coder-dark.min.126ad3988d46bdae6217a11105b53c9662bca05f39d42d3c0fb366919d334620.css" integrity="sha256-EmrTmI1Gva5iF6ERBbU8lmK8oF851C08D7NmkZ0zRiA=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/hugo/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/hugo/img/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="/hugo/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/hugo/images/apple-touch-icon.png">
+
+    
+      <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+    
+
+    <meta name="generator" content="Hugo 0.79.0-DEV" />
+  </head>
+
+  
+  
+    
+  
+  <body class="colorscheme-dark"
+        onload=" twemoji.parse(document.body); "
+  >
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/hugo">
+      Toby
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/hugo/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/hugo/contact/">Contact me</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/hugo/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/hugo/projects">Projects</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">选择排序</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2016-09-06T20:11:20Z'>
+                September 6, 2016
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              2-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      <div>
+        
+        <p>选择排序分为 <strong>简单选择排序</strong> 和 <strong>堆排序</strong></p>
+<h2 id="简单选择排序">简单选择排序</h2>
+<pre><code>public static void selectSort(int[] a) {
+    int len = a.length;
+    for (int k = 0; k &lt; len; k++) {
+        int min = k;
+        for (int i = k + 1; i &lt; len; i++) {
+            if (a[i] &lt; a[min]) {
+                min = i;
+            }
+        }
+        if (k != min) {
+            int temp = a[k];
+            a[k] = a[min];
+            a[min] = temp;
+        }
+    }
+    printSort(a);
+}
+</code></pre>
+<h2 id="堆排序">堆排序</h2>
+<p>堆 一般指<strong>二叉堆</strong>，(由于其它几种堆（二项式堆，斐波纳契堆等）用的较少，一般将二叉堆就简称为
+堆), 二叉堆是完全二叉树或近似完全二叉树</p>
+<p>特性：</p>
+<ul>
+<li>父节点 总是 大于或等于（小于或等于） 任何一个子节点</li>
+<li>每个节点的左右子树都是一个二叉堆（大根堆 /小根堆）</li>
+</ul>
+<p>存储：一般用数组存储，i节点的父节点的下标为 （i-1）/2</p>
+<pre><code>                它的左右子节点为 2*i+1 , 2*i+2
+</code></pre>
+<p>操作：
+建堆 刚开始的数组,对应的树不是堆，需要将其堆化，依次将父节点的值与子节点中最大（小）的值比较，交换
+插入 插入到堆末，这时堆已经乱了次序，需要再次更新 堆化
+删除 删除节点总是发生在根节点 a[0]， 删除后将最后一个节点交换上来，再次更新，堆化</p>
+<h4 id="堆排序-1">堆排序</h4>
+<pre><code>public static void headSort(int[] a) {
+    for (int i = 0; i &lt; a.length; i++) {
+        createMaxHeap(a, a.length - 1 - i); //堆化 大根堆 
+        swap(a, 0, a.length - 1 - i); //大根堆的节点是最大的，将其放到最后
+        printSort(a);
+    }
+}
+
+private static void createMaxHeap(int[] a, int lastIndex) {
+    for (int i = (lastIndex - 1) / 2; i &gt;= 0; i--) {
+        // 保存当前正在判断的节点
+        int k = i;
+        // 若当前结点的子节点存在
+        while (2 * k + 1 &lt;= lastIndex) {
+            // biggerIndex 总是记录较大节点的值，先赋值为 当前判断节点的子节点
+            int biggerIndex = 2 * k + 1;
+            if (biggerIndex &lt; lastIndex) {
+                // 若右子节点存在，否则此时biggerIndex应该等于lastIndex
+                if (a[biggerIndex] &lt; a[biggerIndex + 1]) {
+                    // 若右子节点值比左节点大，则biggerIndex记录的是右子节点的值
+                    biggerIndex++;
+                }
+            }
+            if (a[k] &lt; a[biggerIndex]) {
+                // 若当前节点值比子节点最大值小，则交换二者的值，交换后将biggerIndex的值付给k
+                swap(a, k, biggerIndex);
+                k = biggerIndex;
+            } else {
+                break;
+            }
+        }
+    }
+}
+</code></pre>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+        <p>Enter a text here.</p>
+      
+      
+        ©
+        
+          2019 -
+        
+        2020
+         Toby 
+      
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+
+    </main>
+
+    
+      
+        
+        <script src="/hugo/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
+      
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+  </body>
+
+</html>

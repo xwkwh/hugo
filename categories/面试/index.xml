@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>面试 on Toby</title>
+    <link>http://xwkwh.github.io/hugo/categories/%E9%9D%A2%E8%AF%95/</link>
+    <description>Recent content in 面试 on Toby</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 21 Jun 2018 21:10:26 +0000</lastBuildDate><atom:link href="http://xwkwh.github.io/hugo/categories/%E9%9D%A2%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>面试碎片</title>
+      <link>http://xwkwh.github.io/hugo/posts/%E9%9D%A2%E8%AF%95%E7%A2%8E%E7%89%87/</link>
+      <pubDate>Thu, 21 Jun 2018 21:10:26 +0000</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/posts/%E9%9D%A2%E8%AF%95%E7%A2%8E%E7%89%87/</guid>
+      <description>计算机内存不足   当计算机系统内存不足的时候，系统会自动启用虚拟内存来解决内存不足的问题
+所谓虚拟内存 ，就是把硬盘上的一块区域当作物理内存（RAM）来使用
+性能：由于硬盘的读写速度和内存时不能比的，所以性能会很差
+  进程间通信 Linux : 管道，消息队列，共享内存，信号量，套接口等等 Windows : 消息(linux信号)、共享内存、邮件槽（mailslot） (点对点消息队列)、管道、socket、 ​	剪切板、动态数据交换、文件映射、对象链接与嵌入、远程过程调用、动态连接库、WM_COPYDATA
+二叉树种类   满二叉树：
+  完全二叉树：深度为h，除第 h 层外，其它各层 (1～h-1) 的结点数都达到最大个数，第 h 层所有的结点都连续集中在最左边，这就是完全二叉树。
+  二叉查找树、二叉有序树、
+如果树不是一颗空树的话，那么二叉查找树具有以下特征：
+1. 若左子树不为空，那么左子树所有节点的值小于均小于他的根节点的值。 2. 若右子树不为空，那么右子树的所有节点的值大于根节点的值。 3. 左右子树也分别为二叉排序树。 4. 没有键值相等的节点。   平衡二叉树 （AVL） :一 棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树
+  红黑树
+1. 每个节点要么是红的，要么是黑的 2. 根节点必须是黑的 3. 每个叶子节点是黑的 4. 如果父节点是红的，那么两个子节点是黑的 5. 对于每个节点，从该节点到其子孙节点的所有路径上包含相同数目   B-树 B-树是一种多路搜索树
+性质：
+1. 根结点至少有两个子女； 2.</description>
+    </item>
+    
+  </channel>
+</rss>

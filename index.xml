@@ -1,41 +1,451 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Toby&#39;s Blog</title>
+    <title>Toby</title>
     <link>http://xwkwh.github.io/hugo/</link>
-    <description>Recent content on Toby&#39;s Blog</description>
+    <description>Recent content on Toby</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 04 Nov 2020 21:48:23 +0800</lastBuildDate>
-    
-	<atom:link href="http://xwkwh.github.io/hugo/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>About</title>
-      <link>http://xwkwh.github.io/hugo/about/</link>
-      <pubDate>Wed, 04 Nov 2020 21:48:23 +0800</pubDate>
-      
-      <guid>http://xwkwh.github.io/hugo/about/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>My First Post</title>
-      <link>http://xwkwh.github.io/hugo/posts/my-first-post/</link>
-      <pubDate>Wed, 04 Nov 2020 10:18:30 +0800</pubDate>
-      
-      <guid>http://xwkwh.github.io/hugo/posts/my-first-post/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Thu, 02 Jan 2020 21:10:26 +0000</lastBuildDate><atom:link href="http://xwkwh.github.io/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux Shell Learning</title>
       <link>http://xwkwh.github.io/hugo/posts/linux-shell/</link>
       <pubDate>Thu, 02 Jan 2020 21:10:26 +0000</pubDate>
       
       <guid>http://xwkwh.github.io/hugo/posts/linux-shell/</guid>
-      <description>Base chsh change shell To Know shells installed $ cat /etc/shells # List of acceptable shells for chpass(1). # Ftpd will not allow users to connect who are not using # one of these shells. /bin/bash /bin/csh /bin/dash /bin/ksh /bin/sh /bin/tcsh /bin/zsh check current shell $ echo $SHELL /bin/zsh change shell in all environment $ chsh -s /bin/zsh Changing shell for xwk. Password for xwk: chsh: no changes made export: change environment variable export output all environment variable $ export CLICOLOR=1 COLORFGBG=&amp;#39;7;0&amp;#39; COLORTERM=truecolor COMMAND_MODE=unix2003 GOBIN=/Users/xwk/gopath/bin GOPATH=/Users/xwk/gopath GOROOT=/usr/local/go HOME=/Users/xwk HOMEBREW_BOTTLE_DOMAIN=https://mirrors.</description>
+      <description>categories: Linux tags: - Linux
+Base chsh change shell To Know shells installed $ cat /etc/shells # List of acceptable shells for chpass(1). # Ftpd will not allow users to connect who are not using # one of these shells. /bin/bash /bin/csh /bin/dash /bin/ksh /bin/sh /bin/tcsh /bin/zsh check current shell $ echo $SHELL /bin/zsh change shell in all environment $ chsh -s /bin/zsh Changing shell for xwk. Password for xwk: chsh: no changes made export: change environment variable export output all environment variable $ export CLICOLOR=1 COLORFGBG=&amp;#39;7;0&amp;#39; COLORTERM=truecolor COMMAND_MODE=unix2003 GOBIN=/Users/xwk/gopath/bin GOPATH=/Users/xwk/gopath GOROOT=/usr/local/go HOME=/Users/xwk HOMEBREW_BOTTLE_DOMAIN=https://mirrors.</description>
+    </item>
+    
+    <item>
+      <title>Redis Bitmaps</title>
+      <link>http://xwkwh.github.io/hugo/posts/2018-11-06-redis-bitmaps/</link>
+      <pubDate>Tue, 06 Nov 2018 19:00:00 +0000</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/posts/2018-11-06-redis-bitmaps/</guid>
+      <description>Bitmaps Bitmaps 在redis中本身不是数据结构，实际上它就是字符串，但是他可以对字符串的位进行操作
+bitmaps单独提供了一套命令和string的使用不太相同
+命令   设置值
+setbit key offset value offset为相对偏移量，返回的值为该位原来的值
+  获取值
+getbit key offset 可以应用于网站用户登陆，返回0表示未登陆过
+  统计指定范围值为1的个数
+bitcount key [start][end] 可以应用于用户访问数量 和 时长
+  bitmaps之间的运算
+bitop op destkey key[key....] bitop是一个复合操作，它可以做多个Bitmaps的and（交集）、or（并 集）、not（非）、xor（异或）操作并将结果保存在destkey中
+eg: 计算几天内用户任意一天访问过的数量，可以把这几天的key取and
+bitop and unique:users:and:2016-04-04_03 unique:users:2016-04-03 unique:users:2016-04-03
+  计算bitmaps中第一个值为targeBit的偏移量
+bitpos key targetBit [start] [end] eg: 计算当前访问的用户最小id
+bitpos unique:users:2016-04-04 1
+(integer) 1
+   </description>
+    </item>
+    
+    <item>
+      <title>Sed Learning</title>
+      <link>http://xwkwh.github.io/hugo/posts/sed-learning/</link>
+      <pubDate>Thu, 01 Nov 2018 19:12:35 +0000</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/posts/sed-learning/</guid>
+      <description>categories: Linux tags: Linux
+Sed Learning 用s命令替换   eg: sed &amp;quot;s/my/xwk&#39;s/g&amp;quot; test.txt
+s代表替换，/my/匹配my /xwk&amp;rsquo;s/将匹配的替换为xwk&amp;rsquo;s g表示替换所有匹配
+*再注意：*上面的sed并没有对文件的内容改变，只是把处理过后的内容输出，如果你要写回文件，你可以使用重定向，如 sed &amp;quot;s/my/xwk&#39;s/g&amp;quot; test.txt &amp;gt; sedToXwk.txt  （&amp;raquo; 可以追加到文件末尾） 或者 使用 -i 参数直接修改文件内容 sed -i &amp;quot;s/my/xwk&#39;s/g&amp;quot; test.txt 
+  附：正则基础
+  ^ 表示一行的开头。如：/^#/ 以#开头的匹配。
+  $ 表示一行的结尾。如：/}$/ 以}结尾的匹配。
+  \&amp;lt; 表示词首。 如：\&amp;lt;abc 表示以 abc 为首的詞。
+  \&amp;gt; 表示词尾。 如：abc\&amp;gt; 表示以 abc 結尾的詞。
+  . 表示任何单个字符。
+  * 表示某个字符出现了0次或多次。</description>
+    </item>
+    
+    <item>
+      <title>Mac Setting</title>
+      <link>http://xwkwh.github.io/hugo/posts/mac-%E5%B7%A5%E4%BD%9C%E8%AE%BE%E7%BD%AE/</link>
+      <pubDate>Mon, 29 Oct 2018 16:12:35 +0000</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/posts/mac-%E5%B7%A5%E4%BD%9C%E8%AE%BE%E7%BD%AE/</guid>
+      <description>categories: mac tags: mac
+Mac 工作设置   dock栏 左侧，最小化到icon中
+  全键盘控制
+  Trackpad轻点
+  三指取词，调整词典英译汉
+  更改 Caps Lock 键为 Control 键
+  Alfred 替换 spot
+   </description>
+    </item>
+    
+    <item>
+      <title>Cach2go源码学习</title>
+      <link>http://xwkwh.github.io/hugo/posts/cach2go%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Sun, 24 Jun 2018 16:10:26 +0000</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/posts/cach2go%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/</guid>
+      <description>Cach2go源码学习 最近在磕golang，实战项目还不多，周末闲暇之余找了一个比较简单的开源库研究研究，阅读大牛写的开源代码应该对自己学习很有帮助，还能学一些设计思想。为了防止遗忘，把学到的相关记录了一下 cache2go是一个使用golang实现的并发安全并且包含超时机制的缓存库、缓存方式为表，表中可存储key-value方式的数据，可以学习到锁、goroutie、map的使用 关键的几个文件：
+cache.go cachetable.go cacheitem.go errors.go Cache cache.go 返回或者创建一个cacheTable
+var ( //俩个全局变量  //cache 实际的存储cache，key是string，value是*CacheTable  //mutex 是一个RWMutex，读写锁 	cache = make(map[string]*CacheTable) mutex sync.RWMutex ) // Cache returns the existing cache table with given name or creates a new one // if the table does not exist yet. func Cache(table string) *CacheTable { mutex.RLock() //当外部调用的时候，先判断有无table，该操作不涉及写，所以用Rlock 	t, ok := cache[table] mutex.RUnlock() //存在直接返回table，不存在  //则进行相应的操作，新建一个table，该操作为了同步，加Lock 	if !ok { mutex.</description>
+    </item>
+    
+    <item>
+      <title>Golang Goroutine源码解析 -1</title>
+      <link>http://xwkwh.github.io/hugo/posts/golang-goroutine%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/</link>
+      <pubDate>Thu, 21 Jun 2018 21:10:26 +0000</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/posts/golang-goroutine%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/</guid>
+      <description>categories: Golang tags: - Golang - goroutine
+Golang Goroutine源码解析 -1 Golang 调度器四个重要结构 ：M P G Sched MPG的结构源码在src/runtime2.go文件中
+ M （Machine）代表着一个内核线程 一个M就是一个内核线程，goroutine就是跑在M之上的 P 代表着(Processor)处理器 它的主要用途就是用来执行goroutine的，所以它也维护了一个可运行的goroutine队列，和自由的goroutine队列，里面存储了所有需要它来执行的goroutine。 G 代表着goroutine 实际的数据结构(就是你封装的那个方法)，并维护者goroutine 需要的栈、程序计数器以及它所在的M等信息。 Sched 代表着一个调度器 它维护有存储空闲的M队列和空闲的P队列，可运行的G队列，自由的G队列以及调度器的一些状态信息等。  M上有P，P里有G，Sched调度M、P、G
+三者关系图：
+一个M会对应一个内核线程，一个M也会连接一个上下文P，一个上下文P相当于一个“处理器”，一个上下文连接一个或者多个Goroutine。P(Processor)的数量是在启动时被设置为环境变量GOMAXPROCS的值，或者通过运行时调用函数runtime.GOMAXPROCS()进行设置。 Goroutine中就是我们要执行并发的代码。图中P正在执行的Goroutine为蓝色的；处于待执行状态的Goroutine为灰色的，灰色的Goroutine形成了一个队列runqueues
+三者关系的宏观的图为：
+参考： https://i6448038.github.io/2017/12/04/golang-concurrency-principle/</description>
+    </item>
+    
+    <item>
+      <title>Leetcode解题思路（easy） 更新ing</title>
+      <link>http://xwkwh.github.io/hugo/posts/leetcode%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF-easy/</link>
+      <pubDate>Thu, 21 Jun 2018 21:10:26 +0000</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/posts/leetcode%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF-easy/</guid>
+      <description>categories: Leetcode tags: - Leetcode - easy
+思路   344 reverse string : 1. 暴力 2. 左右指针遍历交换、
+  292 Nim Game ： 找规律4的倍数必输
+  266 Palindrome Permutation(回文排列) ： 利用set，存在删除，否则加入
+  293 Flip Game ：
+这道题让我们把相邻的两个++变成&amp;ndash;，真不是一道难题，我们就从第二个字母开始遍历，每次判断当前字母是否为+，和之前那个字母是否为+，如果都为加，则将翻转后的字符串存入结果中即可
+  258 Add Digits ：
+ 定义暴力 找规律，9个一循环    104 Maximum Depth of Binary Tree ：
+求二叉树的最大深度，就用递归，直接return 1 + max(DFS(left), DFS(right))就行
+  237 Delete Node in a Linked List ：node的下个节点和next分别赋给它</description>
+    </item>
+    
+    <item>
+      <title>Linux常用命令</title>
+      <link>http://xwkwh.github.io/hugo/posts/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Thu, 21 Jun 2018 21:10:26 +0000</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/posts/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
+      <description>categories: 计算机 tags: - 计算机 - Linux
+Linux常用命令 一、文件目录   ls 查看目录文件
+  cd 改变路径
+  pwd 显示当前路径
+  mkdir 新建路径
+  rm 删除文件
+-f, –force 忽略不存在的文件，从不给出提示。 -i, –interactive 进行交互式删除 -r, -R, –recursive 指示rm将参数中列出的全部目录和子目录均递归地删除。 -v, –verbose 详细显示进行的步骤   mv 移动文件
+  cp 复制
+  touch ： 新建空文件
+  cat：打印输出
+  nl：统计输入中的行号，和cat -n类似但有差别
+  more / less ：分页显示内容
+  head/tail ： 显示文件的头和尾内容</description>
+    </item>
+    
+    <item>
+      <title>进程间通信 (IPC)</title>
+      <link>http://xwkwh.github.io/hugo/posts/%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1-inter-process-communication/</link>
+      <pubDate>Thu, 21 Jun 2018 21:10:26 +0000</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/posts/%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1-inter-process-communication/</guid>
+      <description>进程间通信 (Inter Process Communication) Linux : 管道，消息队列，共享内存，信号量，套接口, 信号 Windows : 消息(linux信号)、共享内存、邮件槽（mailslot） (点对点消息队列)、管道、socket、 剪切板、动态数据交换、文件映射、对象链接与嵌入、远程过程调用、动态连接库、WM_COPYDATA
+目的 进程传输、共享数据、通知、资源共享、进程控制
+Linux进程通信   管道（pipe）,流管道(s_pipe)和命名管道（FIFO）
+  信号（signal）
+  消息队列
+  共享内存
+  信号量
+  套接字（socket)
+参考：https://www.jianshu.com/p/c1015f5ffa74
+  1.管道 这种通讯方式有俩种限制：
+  半双工的通信，数据只能单向流动
+  只能在具有亲缘关系(父子进程或兄弟进程)间流动
+匿名管道
+流管道（s_piple）： 去除了第一种限制,可以双向传输.
+有名管道（FIFO）：克服了管道没有名字的限制，它还允许无亲缘关系进程间的通信，有名管道的名字存在于文件系统中，内容存放在内存中。
+  实质：
+​	管道的实质是一个内核缓冲区，进程以先进先出的方式从缓冲区存取数据 管道一端的进程顺序的将数据写入缓冲区 另一端的进程则顺序的读出数据 该缓冲区可以看做是一个循环队列，读和写的位置都是自动增长的，不能随意改变，一个数据只能被读一次，读出来以后在缓冲区就不复存在了。 当缓冲区读空或者写满时，有一定的规则控制相应的读进程或者写进程进入等待队列，当空的缓冲区有新数据写入或者满的缓冲区有数据读出来时，就唤醒等待队列中的进程继续读写
+2. 信号（signal）   信号是Linux系统中用于进程间互相通信或者操作的一种机制，信号可以在任何时候发给某一进程，而无需知道该进程的状态。
+（1）信号被某个进程产生，并设置此信号传递的对象（一般为对应进程的pid），然后传递给操作系统； （2）操作系统根据接收进程的设置（是否阻塞）而选择性的发送给接收者，如果接收者阻塞该信号（且该信号是可以阻塞的），操作系统将暂时保留该信号，而不传递，直到该进程解除了对此信号的阻塞（如果对应进程已经退出，则丢弃此信号），如果对应进程没有阻塞，操作系统将传递此信号。 （3）目的进程接收到此信号后，将根据当前进程对此信号设置的预处理方式，暂时终止当前代码的执行，保护上下文（主要包括临时寄存器数据，当前程序位置以及当前CPU的状态）、转而执行中断服务程序，执行完成后在回复到中断的位置。当然，对于抢占式内核，在中断返回时还将引发新的调度。
+  3. 消息队列  消息队列是存放在内核中的消息链表，每个消息队列由消息队列标识符表示。 与管道（无名管道：只存在于内存中的文件；命名管道：存在于实际的磁盘介质或者文件系统）不同的是消息队列存放在内核中，只有在内核重启(即，操作系统重启)或者显示地删除一个消息队列时，该消息队列才会被真正的删除。 另外与管道不同的是，消息队列在某个进程往一个队列写入消息之前，并不需要另外某个进程在该队列上等待消息的到达  4.</description>
+    </item>
+    
+    <item>
+      <title>面试碎片</title>
+      <link>http://xwkwh.github.io/hugo/posts/%E9%9D%A2%E8%AF%95%E7%A2%8E%E7%89%87/</link>
+      <pubDate>Thu, 21 Jun 2018 21:10:26 +0000</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/posts/%E9%9D%A2%E8%AF%95%E7%A2%8E%E7%89%87/</guid>
+      <description>计算机内存不足   当计算机系统内存不足的时候，系统会自动启用虚拟内存来解决内存不足的问题
+所谓虚拟内存 ，就是把硬盘上的一块区域当作物理内存（RAM）来使用
+性能：由于硬盘的读写速度和内存时不能比的，所以性能会很差
+  进程间通信 Linux : 管道，消息队列，共享内存，信号量，套接口等等 Windows : 消息(linux信号)、共享内存、邮件槽（mailslot） (点对点消息队列)、管道、socket、 ​	剪切板、动态数据交换、文件映射、对象链接与嵌入、远程过程调用、动态连接库、WM_COPYDATA
+二叉树种类   满二叉树：
+  完全二叉树：深度为h，除第 h 层外，其它各层 (1～h-1) 的结点数都达到最大个数，第 h 层所有的结点都连续集中在最左边，这就是完全二叉树。
+  二叉查找树、二叉有序树、
+如果树不是一颗空树的话，那么二叉查找树具有以下特征：
+1. 若左子树不为空，那么左子树所有节点的值小于均小于他的根节点的值。 2. 若右子树不为空，那么右子树的所有节点的值大于根节点的值。 3. 左右子树也分别为二叉排序树。 4. 没有键值相等的节点。   平衡二叉树 （AVL） :一 棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树
+  红黑树
+1. 每个节点要么是红的，要么是黑的 2. 根节点必须是黑的 3. 每个叶子节点是黑的 4. 如果父节点是红的，那么两个子节点是黑的 5. 对于每个节点，从该节点到其子孙节点的所有路径上包含相同数目   B-树 B-树是一种多路搜索树
+性质：
+1. 根结点至少有两个子女； 2.</description>
+    </item>
+    
+    <item>
+      <title>Leetcode 412  FizzBuzz</title>
+      <link>http://xwkwh.github.io/hugo/posts/leetcode-412-fizzbuzz/</link>
+      <pubDate>Mon, 11 Jun 2018 21:17:20 +0000</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/posts/leetcode-412-fizzbuzz/</guid>
+      <description>categories: Leetcode tags: - Leetcode
+Leetcode 412 FizzBuzz  题目：输入一个数n，输出1-n，如果n能被3整除，输出Fizz；能被5整除，输出Buzz；同时能被整除，输出FizzBuzz 思路：直接遍历，先判断能被15整除，再判断能被3/5整除  func fizzBuzz(n int) []string { res := make([]string, n) for i := range res { x := i + 1 switch { case x%15 == 0: res[i] = &amp;#34;FizzBuzz&amp;#34; case x%5 == 0: res[i] = &amp;#34;Buzz&amp;#34; case x%3 == 0: res[i] = &amp;#34;Fizz&amp;#34; default: res[i] = strconv.Itoa(x) } } return res } </description>
+    </item>
+    
+    <item>
+      <title>Leetcode 371  Sum of  Two  Integers</title>
+      <link>http://xwkwh.github.io/hugo/posts/leetcode-371-sum-of-two-integers/</link>
+      <pubDate>Mon, 11 Jun 2018 20:17:20 +0000</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/posts/leetcode-371-sum-of-two-integers/</guid>
+      <description>categories: Leetcode tags: - Leetcode
+Leetcode 371 Sum of Two Integers  Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.
+  Example:
+  Given a = 1 and b = 2, return 3.
+ 题目要求不能使用+和-，就可以想到是用位运算解决
+ ^ 异或，相当于无进位的加法，即俩个位置不一样即为1，否则为0 &amp;amp; 与，求进位，进位的产生是俩个位置上都是1，即1&amp;amp;1=1 &amp;laquo; 由于是进位，还得将其向左移一位， 直到a==0时，返回b即可  func getSum(a int, b int) int { for a != 0 { a, b = (a&amp;amp;b)&amp;lt;&amp;lt;1, a^b } return b } </description>
+    </item>
+    
+    <item>
+      <title>Leetcode 171  Excel Sheet Column Number</title>
+      <link>http://xwkwh.github.io/hugo/posts/leetcode-171-excel-sheet-column-number/</link>
+      <pubDate>Sun, 10 Jun 2018 20:17:20 +0000</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/posts/leetcode-171-excel-sheet-column-number/</guid>
+      <description>categories: Leetcode tags: - Leetcode
+Leetcode 171 Excel Sheet Column Number 把excel 的sheet表示成数字
+For example
+A -&amp;gt; 1 B -&amp;gt; 2 C -&amp;gt; 3 ... Z -&amp;gt; 26 AA -&amp;gt; 27 AB -&amp;gt; 28 类似与二进制转十进制，相当于26进制转换
+Go:
+func titleToNumber(s string) int { l := len(s) res := 0 for i :=0 ; i &amp;lt;l ; i++ { num := (int)(s[i]-&amp;#39;A&amp;#39;+1) res = num + res * 26 } return res } </description>
+    </item>
+    
+    <item>
+      <title>Leetcode 28 Implement strStr()</title>
+      <link>http://xwkwh.github.io/hugo/posts/leetcode-28-implement-strstr/</link>
+      <pubDate>Sun, 10 Jun 2018 20:11:20 +0000</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/posts/leetcode-28-implement-strstr/</guid>
+      <description>categories: Leetcode tags: - Leetcode
+Leetcode 28 Implement strStr() strStr 就是返回在字符串中出现目标字符串的第一个index
+eg:
+Input: haystack = &amp;#34;hello&amp;#34;, needle = &amp;#34;ll&amp;#34; Output: 2 Input: haystack = &amp;#34;aaaaa&amp;#34;, needle = &amp;#34;bba&amp;#34; Output: -1 遍历俩个字符串，随着haystack的遍历，每一次都循环比较needle是否相等，若比较到needle的长度则返回；若中途有不匹配的，直接跳出循环
+Go solution1: 易于理解，在遍历前进行特殊情况的判断
+hlen := len(haystack) nlen := len(needle) if nlen == 0 { return 0 } if hlen &amp;gt;= nlen { for i := 0; i &amp;lt;=hlen-nlen; i++ { j := 0 for j &amp;lt; nlen { if haystack[i+j] !</description>
+    </item>
+    
+    <item>
+      <title>My Vim for Golang</title>
+      <link>http://xwkwh.github.io/hugo/posts/my-vim/</link>
+      <pubDate>Sat, 09 Jun 2018 16:12:35 +0000</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/posts/my-vim/</guid>
+      <description>categories: vim tags: vim
+配置   关键的俩个文件
+ ~/.vim &amp;quot; 插件位置 ~/.vimrc &amp;quot; 配置文件  安装的时候在.vim中复制相关插件文件，在vim中执行:PluginInstall即可进入安装，至Done！
+  Vim插件   Vundle
+:VundleInstall 安装:VundleUpdate 更新:Vundleclean 清除不用的插件    YouCompleteMe 代码自动补全
+nnoremap &amp;lt;leader&amp;gt;gd :YcmCompleter GoTo&amp;lt;CR&amp;gt;  Vim-go golang插件
+  NERDTree 文件目录树
+&amp;#34; 打开时默认开启 autocmd VimEnter * NERDTree   NERDTreeCommentor 快速注释
+  &amp;lt;leader&amp;gt;cc 注释当前行 &amp;lt;leader&amp;gt;cm 只用一组符号来注释 &amp;lt;leader&amp;gt;cy 注释并复制 &amp;lt;leader&amp;gt;cs 优美的注释 &amp;lt;leader&amp;gt;cu 取消注释 &amp;#34; 注释的时候自动加个空格, 强迫症必配 let g:NERDSpaceDelims=1   Powerline 状态栏优雅显示</description>
+    </item>
+    
+    <item>
+      <title>Golang面试总结</title>
+      <link>http://xwkwh.github.io/hugo/posts/golang/</link>
+      <pubDate>Thu, 07 Jun 2018 14:30:04 +0000</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/posts/golang/</guid>
+      <description>categories: Golang tags: - Golang
+GO计时器 Golang中超时处理 （select） 协程交替打印1-20 协程生产者消费者   无缓冲区
+func produce(ch chan&amp;lt;- int) { for i := 0; i &amp;lt; 10; i++ { ch &amp;lt;- i fmt.Println(&amp;#34;Send:&amp;#34;, i) } } func consumer(ch &amp;lt;-chan int) { for i := 0; i &amp;lt; 10; i++ { v := &amp;lt;-ch fmt.Println(&amp;#34;Receive:&amp;#34;, v) } } // 因为channel没有缓冲区，所以当生产者给channel赋值后， // 生产者线程会阻塞，直到消费者线程将数据从channel中取出 // 消费者第一次将数据取出后，进行下一次循环时，消费者的线程 // 也会阻塞，因为生产者还没有将数据存入，这时程序会去执行 // 生产者的线程。程序就这样在消费者和生产者两个线程间不断切换，直到循环结束。 func main() { ch := make(chan int) go produce(ch) go consumer(ch) time.</description>
+    </item>
+    
+    <item>
+      <title>Golang 数据库</title>
+      <link>http://xwkwh.github.io/hugo/posts/golang-%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+      <pubDate>Wed, 07 Dec 2016 14:30:04 +0000</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/posts/golang-%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
+      <description>categories: Golang tags: - Golang
+database/sql 接口 Go没有官方提供数据库驱动，而是为开发者开发数据库驱动定义了一些标准接口，开发者可以根据定义的接口来开发相应的数据库驱动 好处：只要按照标准接口开发的代码，以后需要迁移数据库时，不需要任何修改。
+sql.Register 用来注册数据库驱动 第三方数据库驱动开发是，都要实现init函数，在init函数里面会调用
+sql.Register(name string,driver driver.Driver)  完成驱动注册
+例如：sqlite3、mymysql的驱动注册
+//https://github.com/mattn/go-sqlite3 驱动 func init() { sql.Register(&amp;quot;sqlite3&amp;quot;, &amp;amp;SQLiteDriver{}) } //https://github.com/mikespook/mymysql 驱动 // Driver automatically registered in database/sql var d = Driver{proto: &amp;quot;tcp&amp;quot;, raddr: &amp;quot;127.0.0.1:3306&amp;quot;} func init() { Register(&amp;quot;SET NAMES utf8&amp;quot;) sql.Register(&amp;quot;mymysql&amp;quot;, &amp;amp;d) }  在 database/sql 内部通过一个 map 来存储用户定义的相应驱动
+var drivers = make(map[string]driver.Driver) drivers[name] = driver  因此通过database/sql 的注册函数可以同时注册多个数据库驱动，只要不重复
+使用【import _ 包路径】只是引用该包，仅仅是为了调用init()函数，所以无法通过包名来调用包中的其他函数
+import ( &amp;quot;database/sql&amp;quot; _ &amp;quot;github.</description>
+    </item>
+    
+    <item>
+      <title>SVN基础</title>
+      <link>http://xwkwh.github.io/hugo/posts/svn%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Wed, 07 Dec 2016 14:24:09 +0000</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/posts/svn%E5%9F%BA%E7%A1%80/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>计数排序（基数排序）</title>
+      <link>http://xwkwh.github.io/hugo/posts/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Fri, 09 Sep 2016 11:13:08 +0000</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/posts/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F/</guid>
+      <description>categories: 排序 tags: - 排序
+/** * 8.计数排序 */ public static void countSort(int[] a, int k) { int[] C = new int[k + 1];// 构造数组C int length = a.length, sum = 0;// 获取A数组大小用于构造B数组 int[] B = new int[length];// 构造数组A for (int i = 0; i &amp;lt; length; i++) { C[a[i]] += 1;// 统计A中各元素的个数，存入C数组 } for (int i = 0; i &amp;lt; C.length; i++) {// 修改C数组 sum += C[i]; C[i] = sum; } for (int i = length - 1; i &amp;gt;= 0; i--) {// 遍历数组A 把数组A的值赋到B中对应位置 // 倒序遍历保证稳定性 B[C[a[i]] - 1] = a[i];// 将A中该元素放到排序后数组B中指定的位置 C[a[i]]--;// 将C中该元素-1，方便存放下一个同样大小的元素 } printSort(B); } static int[] countSort2(int[] a, int range/* 数组元素的范围 */) { int count[] = new int[range]; for (int i = 0; i &amp;lt; a.</description>
+    </item>
+    
+    <item>
+      <title>归并排序”</title>
+      <link>http://xwkwh.github.io/hugo/posts/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Fri, 09 Sep 2016 11:10:57 +0000</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/posts/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/</guid>
+      <description>categories: 排序 tags: - 排序
+递归下去 再合并上来
+public static void mergeSort(int[] a, int left, int right) { if (left &amp;gt;= right) { return; } int center = (left + right) &amp;gt;&amp;gt; 1; // 等价于 （left+ right）/2 mergeSort(a, left, center); mergeSort(a, center + 1, right); merger(a, left, center, right); } public static void merger(int[] a, int left, int center, int right) { int[] temArr = new int[right + 1]; int mid = center + 1;// 有部分的遍历索引 int index = left;// index 临时数组的索引，将排好序先放在这里 ，排序完成重新付给a int tmp = left; // 最后赋给原来的数组是遍历用 // 从俩个数组中去除最小的数 放入临时数组 temArr中 while (left &amp;lt;= center &amp;amp;&amp;amp; mid &amp;lt;= right) { temArr[index++] = a[left] &amp;lt; a[mid] ?</description>
+    </item>
+    
+    <item>
+      <title>MarkDown常用命令</title>
+      <link>http://xwkwh.github.io/hugo/posts/markdown/</link>
+      <pubDate>Thu, 08 Sep 2016 16:12:35 +0000</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/posts/markdown/</guid>
+      <description>Markdown语法 1、分段： 两个回车
+2、换行 两个空格 + 回车
+3、标题 # ~ ###### 井号的个数表示几级标题，即Markdown可以表示一级标题到六级标题
+4、引用 &amp;gt;
+5、列表 * ， + ， - ， 1. ，选其中之一，注意后面有个空格
+6、代码区块 四个空格 开头
+7、链接 [文字](链接地址)
+8、图片 ![图片说明](图片地址) ，图片地址可以是本地路劲，也可以是网络地址
+9、强调 **文字** ， __文字__ ， _文字_ ， *文字*
+10、代码 ```，`` 代码块 tab</description>
+    </item>
+    
+    <item>
+      <title>JAVA 中进制转换问题</title>
+      <link>http://xwkwh.github.io/hugo/posts/java-%E4%B8%AD%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Thu, 08 Sep 2016 15:18:29 +0000</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/posts/java-%E4%B8%AD%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%E9%97%AE%E9%A2%98/</guid>
+      <description>categories: 进制转换 tags:
+   - 进制转换    各进制之间的转换 java内部封装的方法，十进制转别的 只需要Integer类中to&amp;hellip; *转十进制，Integer中的parseInt 或者是 valueOf 方法 二者区别如下： *
+  static int parseInt(String s) 将字符串参数作为有符号的十进制整数进行分析。
+  static Integer valueOf(int i) 返回一个表示指定的 int 值的 Integer 实例。
+  static Integer valueOf(String s) 返回保持指定的 String 的值的 Integer 对象。
+int n1 = 14; //十进制转成十六进制： Integer.toHexString(n1); //十进制转成八进制 Integer.toOctalString(n1); //十进制转成二进制 Integer.toBinaryString(12);
+//十六进制转成十进制 Integer.valueOf(&amp;ldquo;FFFF&amp;rdquo;,16).toString(); //十六进制转成二进制 Integer.toBinaryString(Integer.valueOf(&amp;ldquo;FFFF&amp;rdquo;,16)); //十六进制转成八进制 Integer.toOctalString(Integer.valueOf(&amp;ldquo;FFFF&amp;rdquo;,16));
+//八进制转成十进制 Integer.valueOf(&amp;ldquo;576&amp;rdquo;,8).toString(); //八进制转成二进制 Integer.toBinaryString(Integer.valueOf(&amp;ldquo;23&amp;rdquo;,8)); //八进制转成十六进制 Integer.</description>
+    </item>
+    
+    <item>
+      <title>排序总结</title>
+      <link>http://xwkwh.github.io/hugo/posts/%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Wed, 07 Sep 2016 16:50:52 +0000</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/posts/%E6%8E%92%E5%BA%8F/</guid>
+      <description>categories: 排序 tags: - 排序
+一、稳定性 稳定： 冒泡排序、插入排序、归并排序、基数排序 不稳定： 选择排序、快速排序、希尔排序、堆排序
+二、时间复杂度 O(n^2): 直接插入排序、简单选择排序、冒泡排序 O(nlgn): 快速排序、归并排序、堆排序、希尔排序 （快徘&amp;gt;归并、希尔&amp;gt; 堆徘）
+三、排序算法的选择 1. 数据规模较小  待排序列基本序的情况下，可以选择直接插入排序； 对稳定性不作要求宜用简单选择排序，对稳定性有要求宜用插入或冒泡  2. 数据规模不是很大  完全可以用内存空间，序列杂乱无序，对稳定性没有要求，快速排序，此时要付出log（n）的额外空间 序列本省可能有序，对稳定性有要求，空间允许下，宜用归并排序  3. 数据规模很大  对稳定性有要求，则可考虑归并排序 对稳定性没有要求，则 堆排序  4. 序列初始基本有序，适合直接插入，冒泡 </description>
+    </item>
+    
+    <item>
+      <title>Two Sum</title>
+      <link>http://xwkwh.github.io/hugo/posts/two-sum/</link>
+      <pubDate>Tue, 06 Sep 2016 21:41:11 +0000</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/posts/two-sum/</guid>
+      <description>categories: tags: - Leecode
+Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+You may assume that each input would have exactly one solution.
+Example: Given nums = [2, 7, 11, 15], target = 9,
+ Because nums[0] + nums[1] = 2 + 7 = 9, return [0, 1].   Solution: 1.俩层遍历 暴力穷举 时间复杂度 O(N2) 空间复杂度 O(1)
+public static int[] twoSum(int[] nums, int target) { for (int i = 0; i &amp;lt; nums.</description>
+    </item>
+    
+    <item>
+      <title>选择排序</title>
+      <link>http://xwkwh.github.io/hugo/posts/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Tue, 06 Sep 2016 20:11:20 +0000</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/posts/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</guid>
+      <description>选择排序分为 简单选择排序 和 堆排序
+简单选择排序 public static void selectSort(int[] a) { int len = a.length; for (int k = 0; k &amp;lt; len; k++) { int min = k; for (int i = k + 1; i &amp;lt; len; i++) { if (a[i] &amp;lt; a[min]) { min = i; } } if (k != min) { int temp = a[k]; a[k] = a[min]; a[min] = temp; } } printSort(a); }  堆排序 堆 一般指二叉堆，(由于其它几种堆（二项式堆，斐波纳契堆等）用的较少，一般将二叉堆就简称为 堆), 二叉堆是完全二叉树或近似完全二叉树</description>
+    </item>
+    
+    <item>
+      <title>交换排序</title>
+      <link>http://xwkwh.github.io/hugo/posts/%E4%BA%A4%E6%8D%A2%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Tue, 06 Sep 2016 20:10:26 +0000</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/posts/%E4%BA%A4%E6%8D%A2%E6%8E%92%E5%BA%8F/</guid>
+      <description>categories: 排序 tags:
+   - 排序    交换排序分为 冒泡排序 和 快速排序
+冒泡排序(三种实现) 冒泡排序是非常容易理解和实现，以从小到大排序举例： 顾名思义，就是排序时，最大的元素会如同气泡一样移至右端，其利用比较相邻元素的方法，将大的元素交换至右端， 所以大的元素会不断的往右移动，直到适当的位置为止。 基本的气泡排序法可以利用旗标的方式稍微减少一些比较的时间，当寻访完阵列后都没有发生任何的交换动作， 表示排序已经完成，而无需再进行之后的回圈比较与交换动作。
+设数组长度为N。
+  1．比较相邻的前后二个数据，如果前面数据大于后面的数据，就将二个数据交换。
+  2．这样对数组的第0个数据到N-1个数据进行一次遍历后，最大的一个数据就 “沉”到数组第N-1个位置。
+  3．N=N-1，如果N不为0就重复前面二步，否则排序完成。
+  按照定义写
+public static void bubbleSort(int[] a) { int temp = 0; for (int i = 0; i &amp;lt; a.length - 1; i++) { for (int j = 0; j &amp;lt; a.length - 1 - i; j++) { if (a[j] &amp;gt; a[j + 1]) { temp = a[j]; a[j] = a[j + 1]; a[j + 1] = temp; } } } printSort(a); }</description>
+    </item>
+    
+    <item>
+      <title>插入排序</title>
+      <link>http://xwkwh.github.io/hugo/posts/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Tue, 06 Sep 2016 20:07:07 +0000</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/posts/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</guid>
+      <description>categories: 排序 tags: - 排序
+   - 插入    插入排序分为 简单插入排序 和 希尔排序
+简单插入排序 (三种实现) 基本思想： 每次将一个待排序的记录，按其关键字大小插入到 前面已经排好序的子序列中 的适当位置，直到全部记录插入完成 为止。 设数组为 a[0…n-1]。
+ 初始时，a[0]自成 1 个有序区，无序区为 a[1..n-1]。令 i=1 将 a[i]并入当前的有序区 a[0…i-1]中形成 a[0…i]的有序区间。 i++并重复第二步直到 i==n-1。排序完成。  按定义来比较麻烦,代码多
+public static void insertSort1(int[] data) { int i, j, k; for (i = 1; i &amp;lt; data.length; i++) { // 为a[i]在前面的a[0...i-1]有序区间中找一个合适的位置 for (j = i - 1; j &amp;gt;=0; j--) { if (data[j] &amp;lt; data[i]) break; } // 如找到了一个合适的位置 if (j !</description>
+    </item>
+    
+    <item>
+      <title>转圈打印矩阵</title>
+      <link>http://xwkwh.github.io/hugo/posts/%E8%BD%AC%E5%9C%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5/</link>
+      <pubDate>Fri, 02 Sep 2016 14:38:17 +0000</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/posts/%E8%BD%AC%E5%9C%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5/</guid>
+      <description>categories: 算法数据结构 tags:
+- 矩阵
+- 算法
+腾讯模拟鄙视的一道题，我室友花了俩个小时做出来，然后又想到前俩天有同事推荐 我做这道题，所以今天上手实践了一下
+解题思路：确定矩阵左上角和右下角的点的坐标（leftY，leftX）（rightY，rightX） 一圈圈打印，遍历一圈打印，然后将left++ right&amp;ndash; 直到右下角的点跑到左上角的点的左边或上边 把每一次打印的拼起来
+ JAVA版：   public static void spiralOrderPrint(int[][] matrix) { int leftY = 0; int leftX = 0; int rightY = matrix.length - 1; int rightX = matrix[0].length - 1; //定义了矩阵左上角和右下角点的坐标 while (leftY &amp;lt;= rightY &amp;amp;&amp;amp; leftX &amp;lt;= rightX) { // 调用printEdge方法循环向内打印每一圈 printEdge(matrix, leftY++, leftX++, rightX--, rightY--); } } //核心打印每一圈 //应该想到 俩个顶点有四个参数，可以确定我们遍历四个边时候的边界条件 //所以不能直接变化坐标的值 private static void printEdge(int[][] matrix, int leftY, int leftX, int rightX, int rightY) { //定义了时刻移动的点的坐标 int curX = leftX; int curY = leftY; // A&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt;B // ^ | // ^ | // D&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;C while (curX !</description>
+    </item>
+    
+    <item>
+      <title>我的第一篇博客</title>
+      <link>http://xwkwh.github.io/hugo/posts/first-blog/</link>
+      <pubDate>Wed, 31 Aug 2016 18:07:37 +0000</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/posts/first-blog/</guid>
+      <description>试一试MarkDown的语法 测试一下代码： #include &amp;lt;stdio.h&amp;gt; main() {printf(&amp;quot;Hello World!\n&amp;quot;); }   插入链接 百度
+插入图片 测试一下标题
+一级标题 二级标题 三级标题 四级标题 五级标题  无序列表  1 2 3  有序列表  1 2 3   粗体与斜体
+**粗体：用两个*包含一段文本就是粗体。 **
+ 斜体：用一个*包含一段文本就是斜体 *   这里是引用
+ 要注意符号和文本间的空格
+分割线
+ </description>
     </item>
     
   </channel>

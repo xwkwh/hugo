@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="Toby">
+    <meta name="description" content="计算机内存不足   当计算机系统内存不足的时候，系统会自动启用虚拟内存来解决内存不足的问题
+所谓虚拟内存 ，就是把硬盘上的一块区域当作物理内存（RAM）来使用
+性能：由于硬盘的读写速度和内存时不能比的，所以性能会很差
+  进程间通信 Linux : 管道，消息队列，共享内存，信号量，套接口等等 Windows : 消息(linux信号)、共享内存、邮件槽（mailslot） (点对点消息队列)、管道、socket、 ​	剪切板、动态数据交换、文件映射、对象链接与嵌入、远程过程调用、动态连接库、WM_COPYDATA
+二叉树种类   满二叉树：
+  完全二叉树：深度为h，除第 h 层外，其它各层 (1～h-1) 的结点数都达到最大个数，第 h 层所有的结点都连续集中在最左边，这就是完全二叉树。
+  二叉查找树、二叉有序树、
+如果树不是一颗空树的话，那么二叉查找树具有以下特征：
+1. 若左子树不为空，那么左子树所有节点的值小于均小于他的根节点的值。 2. 若右子树不为空，那么右子树的所有节点的值大于根节点的值。 3. 左右子树也分别为二叉排序树。 4. 没有键值相等的节点。   平衡二叉树 （AVL） :一 棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树
+  红黑树
+1. 每个节点要么是红的，要么是黑的 2. 根节点必须是黑的 3. 每个叶子节点是黑的 4. 如果父节点是红的，那么两个子节点是黑的 5. 对于每个节点，从该节点到其子孙节点的所有路径上包含相同数目   B-树 B-树是一种多路搜索树
+性质：
+1. 根结点至少有两个子女； 2.">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="面试碎片"/>
+<meta name="twitter:description" content="计算机内存不足   当计算机系统内存不足的时候，系统会自动启用虚拟内存来解决内存不足的问题
+所谓虚拟内存 ，就是把硬盘上的一块区域当作物理内存（RAM）来使用
+性能：由于硬盘的读写速度和内存时不能比的，所以性能会很差
+  进程间通信 Linux : 管道，消息队列，共享内存，信号量，套接口等等 Windows : 消息(linux信号)、共享内存、邮件槽（mailslot） (点对点消息队列)、管道、socket、 ​	剪切板、动态数据交换、文件映射、对象链接与嵌入、远程过程调用、动态连接库、WM_COPYDATA
+二叉树种类   满二叉树：
+  完全二叉树：深度为h，除第 h 层外，其它各层 (1～h-1) 的结点数都达到最大个数，第 h 层所有的结点都连续集中在最左边，这就是完全二叉树。
+  二叉查找树、二叉有序树、
+如果树不是一颗空树的话，那么二叉查找树具有以下特征：
+1. 若左子树不为空，那么左子树所有节点的值小于均小于他的根节点的值。 2. 若右子树不为空，那么右子树的所有节点的值大于根节点的值。 3. 左右子树也分别为二叉排序树。 4. 没有键值相等的节点。   平衡二叉树 （AVL） :一 棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树
+  红黑树
+1. 每个节点要么是红的，要么是黑的 2. 根节点必须是黑的 3. 每个叶子节点是黑的 4. 如果父节点是红的，那么两个子节点是黑的 5. 对于每个节点，从该节点到其子孙节点的所有路径上包含相同数目   B-树 B-树是一种多路搜索树
+性质：
+1. 根结点至少有两个子女； 2."/>
+
+    <meta property="og:title" content="面试碎片" />
+<meta property="og:description" content="计算机内存不足   当计算机系统内存不足的时候，系统会自动启用虚拟内存来解决内存不足的问题
+所谓虚拟内存 ，就是把硬盘上的一块区域当作物理内存（RAM）来使用
+性能：由于硬盘的读写速度和内存时不能比的，所以性能会很差
+  进程间通信 Linux : 管道，消息队列，共享内存，信号量，套接口等等 Windows : 消息(linux信号)、共享内存、邮件槽（mailslot） (点对点消息队列)、管道、socket、 ​	剪切板、动态数据交换、文件映射、对象链接与嵌入、远程过程调用、动态连接库、WM_COPYDATA
+二叉树种类   满二叉树：
+  完全二叉树：深度为h，除第 h 层外，其它各层 (1～h-1) 的结点数都达到最大个数，第 h 层所有的结点都连续集中在最左边，这就是完全二叉树。
+  二叉查找树、二叉有序树、
+如果树不是一颗空树的话，那么二叉查找树具有以下特征：
+1. 若左子树不为空，那么左子树所有节点的值小于均小于他的根节点的值。 2. 若右子树不为空，那么右子树的所有节点的值大于根节点的值。 3. 左右子树也分别为二叉排序树。 4. 没有键值相等的节点。   平衡二叉树 （AVL） :一 棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树
+  红黑树
+1. 每个节点要么是红的，要么是黑的 2. 根节点必须是黑的 3. 每个叶子节点是黑的 4. 如果父节点是红的，那么两个子节点是黑的 5. 对于每个节点，从该节点到其子孙节点的所有路径上包含相同数目   B-树 B-树是一种多路搜索树
+性质：
+1. 根结点至少有两个子女； 2." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://xwkwh.github.io/hugo/posts/%E9%9D%A2%E8%AF%95%E7%A2%8E%E7%89%87/" />
+<meta property="article:published_time" content="2018-06-21T21:10:26+00:00" />
+<meta property="article:modified_time" content="2018-06-21T21:10:26+00:00" />
+
+
+    <title>
+  面试碎片 · Toby
+</title>
+
+    
+      <link rel="canonical" href="http://xwkwh.github.io/hugo/posts/%E9%9D%A2%E8%AF%95%E7%A2%8E%E7%89%87/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css" integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="/hugo/css/coder.min.f01c647a0d25b40da992a37c3376291185eed8a50ced8c26cc2c0bcfe38c97df.css" integrity="sha256-8Bxkeg0ltA2pkqN8M3YpEYXu2KUM7YwmzCwLz&#43;OMl98=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="/hugo/css/coder-dark.min.126ad3988d46bdae6217a11105b53c9662bca05f39d42d3c0fb366919d334620.css" integrity="sha256-EmrTmI1Gva5iF6ERBbU8lmK8oF851C08D7NmkZ0zRiA=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/hugo/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/hugo/img/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="/hugo/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/hugo/images/apple-touch-icon.png">
+
+    
+      <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+    
+
+    <meta name="generator" content="Hugo 0.79.0-DEV" />
+  </head>
+
+  
+  
+    
+  
+  <body class="colorscheme-dark"
+        onload=" twemoji.parse(document.body); "
+  >
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/hugo">
+      Toby
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/hugo/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/hugo/contact/">Contact me</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/hugo/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/hugo/projects">Projects</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">面试碎片</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2018-06-21T21:10:26Z'>
+                June 21, 2018
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              One-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa fa-folder" aria-hidden="true"></i>
+    <a href="/hugo/categories/%E9%9D%A2%E8%AF%95/">面试</a></div>
+
+          <div class="tags">
+  <i class="fa fa-tag" aria-hidden="true"></i>
+    <a href="/hugo/tags/%E9%9D%A2%E8%AF%95/">面试</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <h3 id="计算机内存不足">计算机内存不足</h3>
+<ol>
+<li>
+<p>当计算机系统内存不足的时候，系统会自动启用虚拟内存来解决内存不足的问题</p>
+<p>所谓<strong>虚拟内存</strong> ，就是把硬盘上的一块区域当作物理内存（RAM）来使用</p>
+<p>性能：由于硬盘的读写速度和内存时不能比的，所以性能会很差</p>
+</li>
+</ol>
+<h3 id="进程间通信">进程间通信</h3>
+<h4 id="linux--管道消息队列共享内存信号量套接口等等">Linux : 管道，消息队列，共享内存，信号量，套接口等等</h4>
+<h4 id="windows--消息linux信号共享内存邮件槽mailslot-点对点消息队列管道socket">Windows : 消息(linux信号)、共享内存、邮件槽（mailslot） (点对点消息队列)、管道、socket、</h4>
+<p>​		   剪切板、动态数据交换、文件映射、对象链接与嵌入、远程过程调用、动态连接库、WM_COPYDATA</p>
+<h3 id="二叉树种类">二叉树种类</h3>
+<ul>
+<li>
+<p>满二叉树：</p>
+</li>
+<li>
+<p>完全二叉树：深度为h，除第 h 层外，其它各层 (1～h-1) 的结点数都达到最大个数，第 h 层所有的结点都连续集中在最左边，这就是完全二叉树。</p>
+</li>
+<li>
+<p>二叉查找树、二叉有序树、</p>
+<p>如果树不是一颗空树的话，那么二叉查找树具有以下特征：</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">1. 若左子树不为空，那么左子树所有节点的值小于均小于他的根节点的值。
+2. 若右子树不为空，那么右子树的所有节点的值大于根节点的值。
+3. 左右子树也分别为二叉排序树。
+4. 没有键值相等的节点。
+</code></pre></div></li>
+<li>
+<p><strong>平衡二叉树</strong> （AVL） :一 棵空树或它的左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树</p>
+</li>
+<li>
+<p><strong>红黑树</strong></p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">1. 每个节点要么是红的，要么是黑的
+2. 根节点必须是黑的
+3. 每个叶子节点是黑的
+4. 如果父节点是红的，那么两个子节点是黑的
+5. 对于每个节点，从该节点到其子孙节点的所有路径上包含相同数目
+</code></pre></div></li>
+<li>
+<h4 id="b-树">B-树</h4>
+<p>B-树是一种多路搜索树</p>
+<p>性质：</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">1. 根结点至少有两个子女；
+  
+2. 每个非根节点所包含的关键字个数 j 满足：┌m/2┐ - 1 &lt;= j &lt;= m - 1；
+3. 除根结点以外的所有结点（不包括叶子结点）的度数正好是关键字总数加1，故内部子树个数 k 满足：┌m/2┐ &lt;= k &lt;= m ；
+4.  所有的叶子结点都位于同一层。
+</code></pre></div></li>
+<li>
+<h4 id="b树">B+树</h4>
+<p>B+树是B-树的变体，也是一种多路搜索树：</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"> 1.其定义基本与B-树同，除了：
+  
+ 2.非叶子结点的子树指针与关键字个数相同；
+  
+3.非叶子结点的子树指针P[i]，指向关键字值属于[K[i], K[i+1])的子树
+  
+（B-树是开区间）；
+  
+ 5.为所有叶子结点增加一个链指针；
+  
+6.所有关键字都在叶子结点出现；
+</code></pre></div></li>
+<li>
+<h4 id="字典树">字典树</h4>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">1.又称单词查找树，Trie树，是一种树形结构，是一种哈希树的变种。
+典型应用是用于统计，排序和保存大量的字符串（但不仅限于字符串），所以经常被搜索引擎系统用于文本词频统计。
+  
+2.它的优点是：利用字符串的公共前缀来节约存储空间，最大限度地减少无谓的字符串比较，查询效率比哈希表高。
+  
+3.字典树与字典很相似,当你要查一个单词是不是在字典树中,首先看单词的第一个字母是不是在字典的第一层,如果不在,说明字典树
+</code></pre></div></li>
+</ul>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+        <p>Enter a text here.</p>
+      
+      
+        ©
+        
+          2019 -
+        
+        2020
+         Toby 
+      
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+
+    </main>
+
+    
+      
+        
+        <script src="/hugo/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
+      
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+  </body>
+
+</html>

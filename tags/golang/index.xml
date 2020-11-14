@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Golang on Toby</title>
+    <link>http://xwkwh.github.io/hugo/tags/golang/</link>
+    <description>Recent content in Golang on Toby</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 24 Jun 2018 16:10:26 +0000</lastBuildDate><atom:link href="http://xwkwh.github.io/hugo/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cach2go源码学习</title>
+      <link>http://xwkwh.github.io/hugo/posts/cach2go%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Sun, 24 Jun 2018 16:10:26 +0000</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/posts/cach2go%E6%BA%90%E7%A0%81%E5%AD%A6%E4%B9%A0/</guid>
+      <description>Cach2go源码学习 最近在磕golang，实战项目还不多，周末闲暇之余找了一个比较简单的开源库研究研究，阅读大牛写的开源代码应该对自己学习很有帮助，还能学一些设计思想。为了防止遗忘，把学到的相关记录了一下 cache2go是一个使用golang实现的并发安全并且包含超时机制的缓存库、缓存方式为表，表中可存储key-value方式的数据，可以学习到锁、goroutie、map的使用 关键的几个文件：
+cache.go cachetable.go cacheitem.go errors.go Cache cache.go 返回或者创建一个cacheTable
+var ( //俩个全局变量  //cache 实际的存储cache，key是string，value是*CacheTable  //mutex 是一个RWMutex，读写锁 	cache = make(map[string]*CacheTable) mutex sync.RWMutex ) // Cache returns the existing cache table with given name or creates a new one // if the table does not exist yet. func Cache(table string) *CacheTable { mutex.RLock() //当外部调用的时候，先判断有无table，该操作不涉及写，所以用Rlock 	t, ok := cache[table] mutex.RUnlock() //存在直接返回table，不存在  //则进行相应的操作，新建一个table，该操作为了同步，加Lock 	if !ok { mutex.</description>
+    </item>
+    
+  </channel>
+</rss>

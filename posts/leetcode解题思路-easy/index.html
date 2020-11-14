@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="Toby">
+    <meta name="description" content="categories: Leetcode tags: - Leetcode - easy
+思路   344 reverse string : 1. 暴力 2. 左右指针遍历交换、
+  292 Nim Game ： 找规律4的倍数必输
+  266 Palindrome Permutation(回文排列) ： 利用set，存在删除，否则加入
+  293 Flip Game ：
+这道题让我们把相邻的两个&#43;&#43;变成&ndash;，真不是一道难题，我们就从第二个字母开始遍历，每次判断当前字母是否为&#43;，和之前那个字母是否为&#43;，如果都为加，则将翻转后的字符串存入结果中即可
+  258 Add Digits ：
+ 定义暴力 找规律，9个一循环    104 Maximum Depth of Binary Tree ：
+求二叉树的最大深度，就用递归，直接return 1 &#43; max(DFS(left), DFS(right))就行
+  237 Delete Node in a Linked List ：node的下个节点和next分别赋给它">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Leetcode解题思路（easy） 更新ing"/>
+<meta name="twitter:description" content="categories: Leetcode tags: - Leetcode - easy
+思路   344 reverse string : 1. 暴力 2. 左右指针遍历交换、
+  292 Nim Game ： 找规律4的倍数必输
+  266 Palindrome Permutation(回文排列) ： 利用set，存在删除，否则加入
+  293 Flip Game ：
+这道题让我们把相邻的两个&#43;&#43;变成&ndash;，真不是一道难题，我们就从第二个字母开始遍历，每次判断当前字母是否为&#43;，和之前那个字母是否为&#43;，如果都为加，则将翻转后的字符串存入结果中即可
+  258 Add Digits ：
+ 定义暴力 找规律，9个一循环    104 Maximum Depth of Binary Tree ：
+求二叉树的最大深度，就用递归，直接return 1 &#43; max(DFS(left), DFS(right))就行
+  237 Delete Node in a Linked List ：node的下个节点和next分别赋给它"/>
+
+    <meta property="og:title" content="Leetcode解题思路（easy） 更新ing" />
+<meta property="og:description" content="categories: Leetcode tags: - Leetcode - easy
+思路   344 reverse string : 1. 暴力 2. 左右指针遍历交换、
+  292 Nim Game ： 找规律4的倍数必输
+  266 Palindrome Permutation(回文排列) ： 利用set，存在删除，否则加入
+  293 Flip Game ：
+这道题让我们把相邻的两个&#43;&#43;变成&ndash;，真不是一道难题，我们就从第二个字母开始遍历，每次判断当前字母是否为&#43;，和之前那个字母是否为&#43;，如果都为加，则将翻转后的字符串存入结果中即可
+  258 Add Digits ：
+ 定义暴力 找规律，9个一循环    104 Maximum Depth of Binary Tree ：
+求二叉树的最大深度，就用递归，直接return 1 &#43; max(DFS(left), DFS(right))就行
+  237 Delete Node in a Linked List ：node的下个节点和next分别赋给它" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://xwkwh.github.io/hugo/posts/leetcode%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF-easy/" />
+<meta property="article:published_time" content="2018-06-21T21:10:26+00:00" />
+<meta property="article:modified_time" content="2018-06-21T21:10:26+00:00" />
+
+
+    <title>
+  Leetcode解题思路（easy） 更新ing · Toby
+</title>
+
+    
+      <link rel="canonical" href="http://xwkwh.github.io/hugo/posts/leetcode%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF-easy/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css" integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="/hugo/css/coder.min.f01c647a0d25b40da992a37c3376291185eed8a50ced8c26cc2c0bcfe38c97df.css" integrity="sha256-8Bxkeg0ltA2pkqN8M3YpEYXu2KUM7YwmzCwLz&#43;OMl98=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="/hugo/css/coder-dark.min.126ad3988d46bdae6217a11105b53c9662bca05f39d42d3c0fb366919d334620.css" integrity="sha256-EmrTmI1Gva5iF6ERBbU8lmK8oF851C08D7NmkZ0zRiA=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/hugo/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/hugo/img/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="/hugo/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/hugo/images/apple-touch-icon.png">
+
+    
+      <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+    
+
+    <meta name="generator" content="Hugo 0.79.0-DEV" />
+  </head>
+
+  
+  
+    
+  
+  <body class="colorscheme-dark"
+        onload=" twemoji.parse(document.body); "
+  >
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/hugo">
+      Toby
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/hugo/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/hugo/contact/">Contact me</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/hugo/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/hugo/projects">Projects</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Leetcode解题思路（easy） 更新ing</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2018-06-21T21:10:26Z'>
+                June 21, 2018
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              4-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      <div>
+        
+        <p>categories: Leetcode
+tags:
+- Leetcode
+- easy</p>
+<h2 id="思路">思路</h2>
+<ul>
+<li>
+<p>344 reverse string : 1. 暴力 2. 左右指针遍历交换、</p>
+</li>
+<li>
+<p>292 Nim Game ： 找规律4的倍数必输</p>
+</li>
+<li>
+<p>266 <strong>Palindrome Permutation</strong>(回文排列) ：
+利用set，存在删除，否则加入</p>
+</li>
+<li>
+<p>293 Flip Game ：</p>
+<p>这道题让我们把相邻的两个++变成&ndash;，真不是一道难题，我们就从第二个字母开始遍历，每次判断当前字母是否为+，和之前那个字母是否为+，如果都为加，则将翻转后的字符串存入结果中即可</p>
+</li>
+<li>
+<p>258 Add  Digits ：</p>
+<ol>
+<li>定义暴力</li>
+<li>找规律，9个一循环</li>
+</ol>
+</li>
+<li>
+<p>104 Maximum Depth of Binary Tree ：</p>
+<p>求二叉树的最大深度，就用递归，直接return 1 + max(DFS(left), DFS(right))就行</p>
+</li>
+<li>
+<p><strong>237 Delete Node in a Linked List</strong> ：node的下个节点和next分别赋给它</p>
+</li>
+<li>
+<p>226 Invert Binary Tree ：</p>
+<p>非递归：和层次遍历类似，依次交换左右孩子</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">q.<span style="color:#007f7f">push</span>(root);
+<span style="color:#fff;font-weight:bold">while</span> (!q.<span style="color:#007f7f">empty</span>()) {
+    TreeNode *node = q.<span style="color:#007f7f">front</span>(); q.<span style="color:#007f7f">pop</span>();
+    TreeNode *tmp = node-&gt;left;
+    node-&gt;left = node-&gt;right;
+    node-&gt;right = tmp;
+    <span style="color:#fff;font-weight:bold">if</span> (node-&gt;left) q.<span style="color:#007f7f">push</span>(node-&gt;left);
+    <span style="color:#fff;font-weight:bold">if</span> (node-&gt;right) q.<span style="color:#007f7f">push</span>(node-&gt;right);
+}
+</code></pre></div><p>递归：交换根节点左右孩子，递归左右孩子反转</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">TreeNode *tmp = root-&gt;left;
+root-&gt;left = invertTree(root-&gt;right);
+root-&gt;right = invertTree(tmp);
+<span style="color:#fff;font-weight:bold">return</span> root;
+</code></pre></div></li>
+<li>
+<p>283 Move Zeroes :</p>
+<ol>
+<li>辅助数组</li>
+<li>交换 双指针交换法</li>
+</ol>
+</li>
+<li>
+<p>100 Same Tree：</p>
+<p>递归：DFS递归，</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#fff;font-weight:bold">bool</span> isSameTree(TreeNode *p, TreeNode *q) {
+    <span style="color:#fff;font-weight:bold">if</span> (!p &amp;&amp; !q) <span style="color:#fff;font-weight:bold">return</span> <span style="color:#fff;font-weight:bold">true</span>;
+    <span style="color:#fff;font-weight:bold">if</span> ((p &amp;&amp; !q) || (!p &amp;&amp; q) || (p-&gt;val != q-&gt;val)) <span style="color:#fff;font-weight:bold">return</span> <span style="color:#fff;font-weight:bold">false</span>;
+    <span style="color:#fff;font-weight:bold">return</span> isSameTree(p-&gt;left, q-&gt;left) &amp;&amp; isSameTree(p-&gt;right, q-&gt;right);
+}
+</code></pre></div><p>非递归：以同一种遍历同时遍历树，比较节点</p>
+</li>
+<li>
+<p>242 Valid Anagram ：数组 、map、hash表</p>
+</li>
+<li>
+<p>217 Contains Duplicate ：hash表，或 排序，比较前后俩个值</p>
+</li>
+<li>
+<p>171 Excel Sheet Column Number ：26进制转十进制</p>
+</li>
+<li>
+<p>169 Majority Element （众数）：1.排序取n/2值 2.摩尔投票法</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#fff;font-weight:bold">int</span> res = 0, cnt = 0;
+<span style="color:#fff;font-weight:bold">for</span> (<span style="color:#fff;font-weight:bold">int</span> num : nums) {
+    <span style="color:#fff;font-weight:bold">if</span> (cnt == 0) {res = num; ++cnt;}
+    <span style="color:#fff;font-weight:bold">else</span> <span style="color:#fff;font-weight:bold">if</span> (num == res) ++cnt;
+    <span style="color:#fff;font-weight:bold">else</span> --cnt;
+}
+<span style="color:#fff;font-weight:bold">return</span> res;
+</code></pre></div></li>
+<li>
+<p>235 Lowest Common Ancestor of a Binary Search Tree</p>
+<p>**思路：**由于是一棵二叉搜索树，所以是有序的，那么可以用递归的方法，如果p和q在root的两边，则root就是我们要的点，否则，就分别返回左子树和右子树的递归结果。</p>
+</li>
+<li>
+<p>328 Odd Even Linked List</p>
+</li>
+<li>
+<p>206 Reverse Linked List</p>
+</li>
+<li>
+<p>13 Roman to Integer</p>
+</li>
+<li>
+<p>345 Reverse Vowels of a String ：和反转字符串类似</p>
+</li>
+<li>
+<p>191 Number of 1 Bits ：位操作，&amp;1判断1，&raquo;1右移一位</p>
+</li>
+<li>
+<p>70 Climbing Stairs ：斐波那契数列：递归；DP</p>
+</li>
+<li>
+<p>83 Remove Duplicates from Sorted List ：双指针</p>
+</li>
+<li>
+<p>263 Ugly Number ：不停的除以这些质数</p>
+</li>
+<li>
+<p>202 Happy Number ：根据定义如果有一个数循环出现了则false；找规律，有4的不是</p>
+</li>
+<li>
+<p>326 Power of Three ： 暴力除3；有一个trick技巧，就是不用任何循环，直接return n&gt;0 &amp;&amp; 1162261467%n == 0; 就行</p>
+</li>
+<li>
+<p>231 Power of Two ：判断一个数是否是2的幂，思路和上题类似，循环方法用了8ms，第二种trick就是直接return n&gt;0 &amp;&amp; 4294967296%n==0;</p>
+</li>
+<li>
+<p>121 Best Time to Buy and Sell Stock ：</p>
+<p><strong>思路</strong> ：只需要遍历一次数组，用一个变量记录遍历过数中的最小值，然后每次计算当前值和这个最小值之间的差值最为利润，然后每次选较大的利润来更新。当遍历完成后当前利润即为所求</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#fff;font-weight:bold">public</span> <span style="color:#fff;font-weight:bold">int</span> maxProfit(<span style="color:#fff;font-weight:bold">int</span>[] prices) {
+    <span style="color:#fff;font-weight:bold">int</span> res = 0, buy = Integer.<span style="color:#007f7f">MAX_VALUE</span>;
+    <span style="color:#fff;font-weight:bold">for</span> (<span style="color:#fff;font-weight:bold">int</span> price : prices) {
+        buy = Math.<span style="color:#007f7f">min</span>(buy, price);
+        res = Math.<span style="color:#007f7f">max</span>(res, price - buy);
+    }
+    <span style="color:#fff;font-weight:bold">return</span> res;
+}
+</code></pre></div></li>
+<li>
+<p><strong>24 Swap Nodes in Pairs</strong> :</p>
+<p>递归：</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"> ListNode* swapPairs(ListNode* head) {
+     <span style="color:#fff;font-weight:bold">if</span> (!head || !head-&gt;next) <span style="color:#fff;font-weight:bold">return</span> head;
+     ListNode *t = head-&gt;next;
+     head-&gt;next = swapPairs(head-&gt;next-&gt;next);
+     t-&gt;next = head;
+     <span style="color:#fff;font-weight:bold">return</span> t;
+ }
+</code></pre></div><p>非递归：</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"> ListNode* swapPairs(ListNode* head) {
+     ListNode *dummy = <span style="color:#fff;font-weight:bold">new</span> ListNode(-<span style="color:#ff0;font-weight:bold">1</span>), *pre = dummy;
+     dummy-&gt;next = head;
+     <span style="color:#fff;font-weight:bold">while</span> (pre-&gt;next &amp;&amp; pre-&gt;next-&gt;next) {
+         ListNode *t = pre-&gt;next-&gt;next;
+         pre-&gt;next-&gt;next = t-&gt;next;
+         t-&gt;next = pre-&gt;next;
+         pre-&gt;next = t;
+         pre = t-&gt;next;
+     }
+     <span style="color:#fff;font-weight:bold">return</span> dummy-&gt;next;
+ }
+</code></pre></div></li>
+<li>
+<p>110 Balanced Binary Tree</p>
+<p>**思路：**判断一棵树是否是平衡二叉树，即对于树中的任一节点，其左子树和右子树的高度差小于等于1才行。所以这里需要用到一个求树的高度的函数，如下</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#fff;font-weight:bold">int</span> depth(TreeNode* root) {  
+    <span style="color:#fff;font-weight:bold">return</span> root?max(depth(root-&gt;left),depth(root-&gt;right))+<span style="color:#ff0;font-weight:bold">1</span>:<span style="color:#ff0;font-weight:bold">0</span>;  
+} 
+</code></pre></div><p>然后判断是否时平衡树</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#fff;font-weight:bold">bool</span> isBalanced(TreeNode* root) {  
+    <span style="color:#fff;font-weight:bold">return</span> root ? abs(depth(root-&gt;left)-depth(root-&gt;right)) &lt;=<span style="color:#ff0;font-weight:bold">1</span>			                                 &amp;&amp; isBalanced(root&gt;left) &amp;&amp; isBalanced(root-&gt;right) : <span style="color:#ff0;font-weight:bold">1</span>;  
+}  
+</code></pre></div></li>
+<li>
+<p><strong>198 House Robber  :DP</strong>，分别维护两个变量a和b，然后按奇偶分别来更新a和b，这样就可以保证组成最大和的数字不相邻</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"> <span style="color:#fff;font-weight:bold">int</span> rob(vector&lt;<span style="color:#fff;font-weight:bold">int</span>&gt; &amp;nums) {
+     <span style="color:#fff;font-weight:bold">int</span> a = <span style="color:#ff0;font-weight:bold">0</span>, b = <span style="color:#ff0;font-weight:bold">0</span>;
+     <span style="color:#fff;font-weight:bold">for</span> (<span style="color:#fff;font-weight:bold">int</span> i = <span style="color:#ff0;font-weight:bold">0</span>; i &lt; nums.size(); ++i) {
+         <span style="color:#fff;font-weight:bold">if</span> (i % <span style="color:#ff0;font-weight:bold">2</span> == <span style="color:#ff0;font-weight:bold">0</span>) {
+             a = max(a + nums[i], b);
+         } <span style="color:#fff;font-weight:bold">else</span> {
+             b = max(a, b + nums[i]);
+         }
+     }
+     <span style="color:#fff;font-weight:bold">return</span> max(a, b);
+ }	
+</code></pre></div></li>
+<li>
+<p>102 Binary Tree Level Order Traversal  : 层次遍历</p>
+</li>
+<li>
+<p>107 Binary Tree Level Order Traversal II</p>
+</li>
+<li>
+<p><strong>27 Remove Element</strong> ：和链表类似，我们只需要一个变量用来计数，然后遍历原数组，如果当前的值和给定值不同，我们就把当前值覆盖计数变量的位置，并将计数变量加1</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">  <span style="color:#fff;font-weight:bold">int</span> removeElement(vector&lt;<span style="color:#fff;font-weight:bold">int</span>&gt;&amp; nums, <span style="color:#fff;font-weight:bold">int</span> val) {
+      <span style="color:#fff;font-weight:bold">int</span> res = <span style="color:#ff0;font-weight:bold">0</span>;
+      <span style="color:#fff;font-weight:bold">for</span> (<span style="color:#fff;font-weight:bold">int</span> i = <span style="color:#ff0;font-weight:bold">0</span>; i &lt; nums.size(); ++i) {
+          <span style="color:#fff;font-weight:bold">if</span> (nums[i] != val) nums[res++] = nums[i];
+      }
+      <span style="color:#fff;font-weight:bold">return</span> res;
+  }
+</code></pre></div></li>
+<li>
+<p>26 Remove Duplicates from Sorted Array : 双指针，快的去遍历，慢的是不同的</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#fff;font-weight:bold">int</span> removeDuplicates(vector&lt;<span style="color:#fff;font-weight:bold">int</span>&gt;&amp; nums) {
+        <span style="color:#fff;font-weight:bold">if</span> (nums.empty()) <span style="color:#fff;font-weight:bold">return</span> <span style="color:#ff0;font-weight:bold">0</span>;
+        <span style="color:#fff;font-weight:bold">int</span> j = <span style="color:#ff0;font-weight:bold">0</span>, n = nums.size();
+        <span style="color:#fff;font-weight:bold">for</span> (<span style="color:#fff;font-weight:bold">int</span> i = <span style="color:#ff0;font-weight:bold">0</span>; i &lt; n; ++i) {
+            <span style="color:#fff;font-weight:bold">if</span> (nums[i] != nums[j]) nums[++j] = nums[i];
+        }
+        <span style="color:#fff;font-weight:bold">return</span> j + <span style="color:#ff0;font-weight:bold">1</span>;
+ } 
+</code></pre></div></li>
+<li>
+<p>342 Power of Four 判断4的次方数：暴力解除以4；转成对数求解log；是2的次方数了之后，发现只要是4的次方数，减1之后可以被3整</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#fff;font-weight:bold">bool</span> isPowerOfFour(<span style="color:#fff;font-weight:bold">int</span> num) {
+        <span style="color:#fff;font-weight:bold">return</span> num &gt; <span style="color:#ff0;font-weight:bold">0</span> &amp;&amp; !(num &amp; (num - <span style="color:#ff0;font-weight:bold">1</span>)) &amp;&amp; (num - <span style="color:#ff0;font-weight:bold">1</span>) % <span style="color:#ff0;font-weight:bold">3</span> == <span style="color:#ff0;font-weight:bold">0</span>;
+}
+</code></pre></div></li>
+<li>
+<p>66 Plus One:简单的大数加法，遍历数组的每位，同时处理进位，如果最后还有进位，则在数组最前面在插入1即可</p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#fff;font-weight:bold">public</span> <span style="color:#fff;font-weight:bold">int</span>[] plusOne(<span style="color:#fff;font-weight:bold">int</span>[] digits) {
+        <span style="color:#fff;font-weight:bold">int</span> n = digits.<span style="color:#007f7f">length</span>;
+        <span style="color:#fff;font-weight:bold">for</span> (<span style="color:#fff;font-weight:bold">int</span> i = digits.<span style="color:#007f7f">length</span> - 1; i &gt;= 0; --i) {
+            <span style="color:#fff;font-weight:bold">if</span> (digits[i] &lt; 9) {
+                ++digits[i];
+                <span style="color:#fff;font-weight:bold">return</span> digits;
+            }
+            digits[i] = 0;
+        }
+        <span style="color:#fff;font-weight:bold">int</span>[] res = <span style="color:#fff;font-weight:bold">new</span> <span style="color:#fff;font-weight:bold">int</span>[n + 1];
+        res[0] = 1;
+        <span style="color:#fff;font-weight:bold">return</span> res;
+}
+</code></pre></div><ul>
+<li>
+<p>118 Pascal&rsquo;s Triangle :杨辉三角，找规律，一个数等于他前面肩上俩数的和</p>
+</li>
+<li>
+<p>172 Factorial Trailing Zeroes</p>
+</li>
+</ul>
+<p>**思路：**简给定一个数n，求n的阶乘的末尾有几个0，细细一想，求它有多少个0，其实就是求它的质因数有多少个(2*5)的存在，根据归纳法可以证明，一个数的阶乘的质因子中2是远远多于5的，所以只要求它的质因子中有多少个5就行了。</p>
+<ul>
+<li>119 Pascal&rsquo;s Triangle II：要求出给定的一行，空间复杂度要求为O(k)，</li>
+</ul>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">vector&lt;<span style="color:#fff;font-weight:bold">int</span>&gt; getRow(<span style="color:#fff;font-weight:bold">int</span> rowIndex) {
+        vector&lt;<span style="color:#fff;font-weight:bold">int</span>&gt; out;
+        <span style="color:#fff;font-weight:bold">if</span> (rowIndex &lt; <span style="color:#ff0;font-weight:bold">0</span>) <span style="color:#fff;font-weight:bold">return</span> out;
+        
+        out.assign(rowIndex + <span style="color:#ff0;font-weight:bold">1</span>, <span style="color:#ff0;font-weight:bold">0</span>);
+        <span style="color:#fff;font-weight:bold">for</span> (<span style="color:#fff;font-weight:bold">int</span> i = <span style="color:#ff0;font-weight:bold">0</span>; i &lt;= rowIndex; ++i) {
+            <span style="color:#fff;font-weight:bold">if</span> ( i == <span style="color:#ff0;font-weight:bold">0</span>) {
+                out[<span style="color:#ff0;font-weight:bold">0</span>] = <span style="color:#ff0;font-weight:bold">1</span>;
+                <span style="color:#fff;font-weight:bold">continue</span>;
+            }
+            <span style="color:#fff;font-weight:bold">for</span> (<span style="color:#fff;font-weight:bold">int</span> j = rowIndex; j &gt;= <span style="color:#ff0;font-weight:bold">1</span>; --j) {
+                out[j] = out[j] + out[j-<span style="color:#ff0;font-weight:bold">1</span>];
+            }
+        }
+        <span style="color:#fff;font-weight:bold">return</span> out;
+    }
+</code></pre></div><ul>
+<li>
+<p><strong>112 Path Sum</strong></p>
+</li>
+<li>
+<p>9 Palindrome Number</p>
+</li>
+<li>
+<p><strong>225 Implement Stack using Queues</strong></p>
+</li>
+<li>
+<p>111 Minimum Depth of Binary Tree</p>
+</li>
+<li>
+<p><strong>160 Intersection of Two Linked Lists</strong></p>
+</li>
+<li>
+<p><strong>88 Merge Sorted Array</strong></p>
+</li>
+<li></li>
+</ul>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+        <p>Enter a text here.</p>
+      
+      
+        ©
+        
+          2019 -
+        
+        2020
+         Toby 
+      
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+
+    </main>
+
+    
+      
+        
+        <script src="/hugo/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
+      
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+  </body>
+
+</html>

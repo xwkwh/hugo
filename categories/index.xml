@@ -1,22 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Toby&#39;s Blog</title>
+    <title>Categories on Toby</title>
     <link>http://xwkwh.github.io/hugo/categories/</link>
-    <description>Recent content in Categories on Toby&#39;s Blog</description>
+    <description>Recent content in Categories on Toby</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Jan 2020 21:10:26 +0000</lastBuildDate>
-    
-	<atom:link href="http://xwkwh.github.io/hugo/categories/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 21 Jun 2018 21:10:26 +0000</lastBuildDate><atom:link href="http://xwkwh.github.io/hugo/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Linux</title>
-      <link>http://xwkwh.github.io/hugo/categories/linux/</link>
-      <pubDate>Thu, 02 Jan 2020 21:10:26 +0000</pubDate>
+      <title>面试</title>
+      <link>http://xwkwh.github.io/hugo/categories/%E9%9D%A2%E8%AF%95/</link>
+      <pubDate>Thu, 21 Jun 2018 21:10:26 +0000</pubDate>
       
-      <guid>http://xwkwh.github.io/hugo/categories/linux/</guid>
+      <guid>http://xwkwh.github.io/hugo/categories/%E9%9D%A2%E8%AF%95/</guid>
       <description></description>
     </item>
     

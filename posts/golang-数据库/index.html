@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="Toby">
+    <meta name="description" content="categories: Golang tags: - Golang
+database/sql 接口 Go没有官方提供数据库驱动，而是为开发者开发数据库驱动定义了一些标准接口，开发者可以根据定义的接口来开发相应的数据库驱动 好处：只要按照标准接口开发的代码，以后需要迁移数据库时，不需要任何修改。
+sql.Register 用来注册数据库驱动 第三方数据库驱动开发是，都要实现init函数，在init函数里面会调用
+sql.Register(name string,driver driver.Driver)  完成驱动注册
+例如：sqlite3、mymysql的驱动注册
+//https://github.com/mattn/go-sqlite3 驱动 func init() { sql.Register(&quot;sqlite3&quot;, &amp;SQLiteDriver{}) } //https://github.com/mikespook/mymysql 驱动 // Driver automatically registered in database/sql var d = Driver{proto: &quot;tcp&quot;, raddr: &quot;127.0.0.1:3306&quot;} func init() { Register(&quot;SET NAMES utf8&quot;) sql.Register(&quot;mymysql&quot;, &amp;d) }  在 database/sql 内部通过一个 map 来存储用户定义的相应驱动
+var drivers = make(map[string]driver.Driver) drivers[name] = driver  因此通过database/sql 的注册函数可以同时注册多个数据库驱动，只要不重复
+使用【import _ 包路径】只是引用该包，仅仅是为了调用init()函数，所以无法通过包名来调用包中的其他函数
+import ( &quot;database/sql&quot; _ &quot;github.">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Golang 数据库"/>
+<meta name="twitter:description" content="categories: Golang tags: - Golang
+database/sql 接口 Go没有官方提供数据库驱动，而是为开发者开发数据库驱动定义了一些标准接口，开发者可以根据定义的接口来开发相应的数据库驱动 好处：只要按照标准接口开发的代码，以后需要迁移数据库时，不需要任何修改。
+sql.Register 用来注册数据库驱动 第三方数据库驱动开发是，都要实现init函数，在init函数里面会调用
+sql.Register(name string,driver driver.Driver)  完成驱动注册
+例如：sqlite3、mymysql的驱动注册
+//https://github.com/mattn/go-sqlite3 驱动 func init() { sql.Register(&quot;sqlite3&quot;, &amp;SQLiteDriver{}) } //https://github.com/mikespook/mymysql 驱动 // Driver automatically registered in database/sql var d = Driver{proto: &quot;tcp&quot;, raddr: &quot;127.0.0.1:3306&quot;} func init() { Register(&quot;SET NAMES utf8&quot;) sql.Register(&quot;mymysql&quot;, &amp;d) }  在 database/sql 内部通过一个 map 来存储用户定义的相应驱动
+var drivers = make(map[string]driver.Driver) drivers[name] = driver  因此通过database/sql 的注册函数可以同时注册多个数据库驱动，只要不重复
+使用【import _ 包路径】只是引用该包，仅仅是为了调用init()函数，所以无法通过包名来调用包中的其他函数
+import ( &quot;database/sql&quot; _ &quot;github."/>
+
+    <meta property="og:title" content="Golang 数据库" />
+<meta property="og:description" content="categories: Golang tags: - Golang
+database/sql 接口 Go没有官方提供数据库驱动，而是为开发者开发数据库驱动定义了一些标准接口，开发者可以根据定义的接口来开发相应的数据库驱动 好处：只要按照标准接口开发的代码，以后需要迁移数据库时，不需要任何修改。
+sql.Register 用来注册数据库驱动 第三方数据库驱动开发是，都要实现init函数，在init函数里面会调用
+sql.Register(name string,driver driver.Driver)  完成驱动注册
+例如：sqlite3、mymysql的驱动注册
+//https://github.com/mattn/go-sqlite3 驱动 func init() { sql.Register(&quot;sqlite3&quot;, &amp;SQLiteDriver{}) } //https://github.com/mikespook/mymysql 驱动 // Driver automatically registered in database/sql var d = Driver{proto: &quot;tcp&quot;, raddr: &quot;127.0.0.1:3306&quot;} func init() { Register(&quot;SET NAMES utf8&quot;) sql.Register(&quot;mymysql&quot;, &amp;d) }  在 database/sql 内部通过一个 map 来存储用户定义的相应驱动
+var drivers = make(map[string]driver.Driver) drivers[name] = driver  因此通过database/sql 的注册函数可以同时注册多个数据库驱动，只要不重复
+使用【import _ 包路径】只是引用该包，仅仅是为了调用init()函数，所以无法通过包名来调用包中的其他函数
+import ( &quot;database/sql&quot; _ &quot;github." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://xwkwh.github.io/hugo/posts/golang-%E6%95%B0%E6%8D%AE%E5%BA%93/" />
+<meta property="article:published_time" content="2016-12-07T14:30:04+00:00" />
+<meta property="article:modified_time" content="2016-12-07T14:30:04+00:00" />
+
+
+    <title>
+  Golang 数据库 · Toby
+</title>
+
+    
+      <link rel="canonical" href="http://xwkwh.github.io/hugo/posts/golang-%E6%95%B0%E6%8D%AE%E5%BA%93/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css" integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="/hugo/css/coder.min.f01c647a0d25b40da992a37c3376291185eed8a50ced8c26cc2c0bcfe38c97df.css" integrity="sha256-8Bxkeg0ltA2pkqN8M3YpEYXu2KUM7YwmzCwLz&#43;OMl98=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="/hugo/css/coder-dark.min.126ad3988d46bdae6217a11105b53c9662bca05f39d42d3c0fb366919d334620.css" integrity="sha256-EmrTmI1Gva5iF6ERBbU8lmK8oF851C08D7NmkZ0zRiA=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/hugo/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/hugo/img/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="/hugo/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/hugo/images/apple-touch-icon.png">
+
+    
+      <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+    
+
+    <meta name="generator" content="Hugo 0.79.0-DEV" />
+  </head>
+
+  
+  
+    
+  
+  <body class="colorscheme-dark"
+        onload=" twemoji.parse(document.body); "
+  >
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/hugo">
+      Toby
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/hugo/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/hugo/contact/">Contact me</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/hugo/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/hugo/projects">Projects</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Golang 数据库</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2016-12-07T14:30:04Z'>
+                December 7, 2016
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              2-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      <div>
+        
+        <p>categories: Golang
+tags:
+- Golang</p>
+<h2 id="databasesql-接口">database/sql 接口</h2>
+<p>Go没有官方提供数据库驱动，而是为开发者开发数据库驱动定义了一些标准接口，开发者可以根据定义的接口来开发相应的数据库驱动
+<strong>好处</strong>：只要按照标准接口开发的代码，以后需要迁移数据库时，不需要任何修改。</p>
+<h3 id="sqlregister">sql.Register</h3>
+<p>用来注册数据库驱动
+第三方数据库驱动开发是，都要实现init函数，在init函数里面会调用</p>
+<pre><code>sql.Register(name string,driver driver.Driver)
+</code></pre>
+<p>完成驱动注册</p>
+<p>例如：sqlite3、mymysql的驱动注册</p>
+<pre><code>//https://github.com/mattn/go-sqlite3 驱动
+func init() {
+sql.Register(&quot;sqlite3&quot;, &amp;SQLiteDriver{})
+}
+//https://github.com/mikespook/mymysql 驱动
+// Driver automatically registered in database/sql
+var d = Driver{proto: &quot;tcp&quot;, raddr: &quot;127.0.0.1:3306&quot;}
+func init() {
+Register(&quot;SET NAMES utf8&quot;)
+sql.Register(&quot;mymysql&quot;, &amp;d)
+}
+</code></pre>
+<p>在 database/sql 内部通过一个 map 来存储用户定义的相应驱动</p>
+<pre><code>var drivers = make(map[string]driver.Driver)
+
+drivers[name] = driver
+</code></pre>
+<p>因此通过database/sql 的注册函数可以同时注册多个数据库驱动，只要不重复</p>
+<p>使用【import _ 包路径】只是引用该包，仅仅是为了调用init()函数，所以无法通过包名来调用包中的其他函数</p>
+<pre><code>import (
+&quot;database/sql&quot;
+_ &quot;github.com/mattn/go-sqlite3&quot;
+)
+</code></pre>
+<h3 id="driverdriver">driver.Driver</h3>
+<p>Driver是一个数据库驱动的接口
+定义了一个方法： Open(name string) 返回一个数据库的Conn接口</p>
+<pre><code>type Driver interface {
+     Open(name string) (Conn, error)
+}
+</code></pre>
+<p>返回的Conn只能执行一次goroutine操作，就是说不能把这个Conn应用于多个goroutine里面</p>
+<h3 id="driverconn">driver.Conn</h3>
+<p>Conn 是一个数据库连接的接口定义，定义了一系列方法</p>
+<pre><code>type Conn interface {
+    Prepare(query string) (Stmt, error)
+    Close() error
+    Begin() (Tx, error)
+}
+</code></pre>
+<p>Prepare函数返回与当前连接相关的执行 Sql 语句的准备状态，可以进行查询、删除等操作。</p>
+<p>Close 函数关闭当前的连接，执行释放连接拥有的资源等清理工作。因为驱动实现了
+database/sql 里面建议的conn pool，所以你不用再去实现缓存 conn 之类的，这样会容易
+引起问题。</p>
+<p>Begin 函数返回一个代表事务处理的 Tx，通过它你可以进行查询,更新等操作，或者对事务
+进行回滚、递交</p>
+<h3 id="driverstmt">driver.Stmt</h3>
+<p>Stmt是一种准备好的状态，和Conn 相关联，而且只能应用于一个 goroutine 中，不能应
+用于多个goroutine</p>
+<pre><code>type Stmt interface {
+    Close() error
+    NumInput() int
+    Exec(args []Value) (Result, error)
+    Query(args []Value) (Rows, error)
+}
+</code></pre>
+<p>Close 函数关闭当前的链接状态，但是如果当前正在执行 query，query 还是有效返回 rows
+数据。</p>
+<p>NumInput 函数返回当前预留参数的个数，当返回&gt;=0时数据库驱动就会智能检查调用者的
+参数。当数据库驱动包不知道预留参数的时候，返回-1。</p>
+<p>Exec 函数执行Prepare准备好的sql，传入参数执行update/insert 等操作，<strong>返回 Result 数
+据</strong></p>
+<p>Query 函数执行Prepare准备好的 sql，传入需要的参数执行 select 操作，<strong>返回 Rows 结果
+集</strong></p>
+<h3 id="drivertx">driver.Tx</h3>
+<p>事务处理一般就两个过程，<strong>递交</strong>或者<strong>回滚</strong>。数据库驱动里面也只需要实现这两个函数就可以</p>
+<pre><code>type Tx interface {
+    Commit() error
+    Rollback() error
+}
+</code></pre>
+<p>Commit 递交一个事务
+Rollback 回滚一个事务</p>
+<p>数据库事务：对数据库所做的一系列修改，<strong>在修改过程中，暂时不写入数据库，而是缓存起来</strong>，用户在自己的终端可以预览变化，直到全部修改完成，并经过检查确认无误后，<strong>一次性提交并写入数据库</strong>，在提交之前，必要的话所做的修改<strong>都可以取消</strong>。提交之后，就不能撤销，提交成功后其他用户才可以通过查询浏览数据的变化。</p>
+<h3 id="driverexecer">driver.Execer</h3>
+<p>Conn 可选择实现的一个接口</p>
+<pre><code>type Execer interface {
+    Exec(query string, args []Value) (Result, error)
+}
+</code></pre>
+<p>如果这个接口没有定义，那么在调用DB.Exec 就会先调用Prepare 返回Stmt，然后执行Stmt的Exec，然后关闭Stmt</p>
+<h3 id="driverresult">driver.Result</h3>
+<p>Update/insert 等操作返回的结果接口定义</p>
+<pre><code>type Result interface {
+    LastInsertId() (int64, error)  //返回由数据库执行插入操作得到的自增 ID 号
+    RowsAffected() (int64, error)  //返回 query 操作影响的数据条目数
+}
+</code></pre>
+<h3 id="driverrows">driver.Rows</h3>
+<p>执行查询返回的结果接口定义</p>
+<pre><code>type Rows interface {
+    Columns() []string
+    Close() error
+    Next(dest []Value) error
+}
+</code></pre>
+<p>Columns 函数返回查询数据库表的字段信息，这个返回的slice <strong>和 sql 查询的字段</strong>一一对应，
+而不是返回整个表的所有字段。</p>
+<p>Close 函数用来关闭Rows迭代器。</p>
+<p>Next函数用来返回下一条数据，把数据赋值给 dest。dest里面的元素必须是driver.Value的
+值除了string，返回的数据里面所有的 string都必须要转换成[]byte。如果最后没数据了，
+Next函数最后返回 io.EOF</p>
+<h3 id="driverrowsaffected">driver.RowsAffected</h3>
+<pre><code>type RowsAffected int64
+func (RowsAffected) LastInsertId() (int64, error)
+func (v RowsAffected) RowsAffected() (int64, error)
+</code></pre>
+<p>其实就是int64 的别名，但是实现了Result接口，用来底层实现Result的表示方式</p>
+<h3 id="drivervalue">driver.Value</h3>
+<p>Value其实就是一个<strong>空接口</strong>，他可以容纳<strong>任何的数据</strong></p>
+<pre><code>type Value interface{}
+</code></pre>
+<p>drive的Value是驱动必须能够操作的Value，Value要么<strong>是 nil，要么是下面的任意一种</strong></p>
+<pre><code>int64
+float64
+bool
+[]byte
+string [*]除了Rows.Next 返回的不能是 string.
+time.Time
+</code></pre>
+<h3 id="drivervalueconverter">driver.ValueConverter</h3>
+<p>ValueConverter 接口定义了如何把一个普通的值转化成 driver.Value的接口</p>
+<pre><code>type ValueConverter interface {
+     ConvertValue(v interface{}) (Value, error)
+}
+</code></pre>
+<p>在开发的数据库驱动包里面实现这个接口的函数在很多地方会使用到，这个ValueConverter 有很多<strong>好处</strong>：
+• 转化driver.value到数据库表相应的字段，例如 int64 的数据如何转化成数据库表uint16字段
+• 把数据库查询结果转化成driver.Value值
+• 在scan 函数里面如何把 dirve.Value 值转化成用户定义的值</p>
+<h3 id="drivervaluer">driver.Valuer</h3>
+<p>Valuer 接口定义了返回一个 driver.Value 的方式</p>
+<pre><code>type Valuer interface {
+    Value() (Value, error)
+}
+</code></pre>
+<p>很多类型都实现了这个Value方法，用来自身与 driver.Value 的转化。
+通过上面的讲解，你应该对于驱动的开发有了一个基本的了解，一个驱动只要实现了<strong>这些
+接口就能完成增删查改等基本操作了</strong>，剩下的就是与相应的数据库进行数据交互等细节问
+题了，在此不再赘述。</p>
+<h3 id="databasesql">database/sql</h3>
+<p>database/sql 在database/sql/driver 提供的接口基础上定义了一些更高阶的方法，用以简
+化数据库操作,同时内部还建议性地实现一个 conn pool。</p>
+<pre><code>type DB struct {
+    driver driver.Driver
+    dsn string
+    mu sync.Mutex // protects freeConn and closed
+    freeConn []driver.Conn
+    closed bool
+}
+</code></pre>
+<p>我们可以看到Open 函数返回的是 DB 对象，里面有一个 freeConn，它就是那个简易的连
+接池。它的实现相当简单或者说简陋，就是当执行 Db.prepare 的时候会 defer
+db.putConn(ci, err) ,也就是把这个连接放入连接池，每次调用 conn 的时候会先判断
+freeConn 的长度是否大于0，大于0说明有可以复用的 conn，直接拿出来用就是了，如果
+不大于0，则创建一个conn,然后再返回之。</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+        <p>Enter a text here.</p>
+      
+      
+        ©
+        
+          2019 -
+        
+        2020
+         Toby 
+      
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+
+    </main>
+
+    
+      
+        
+        <script src="/hugo/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
+      
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+  </body>
+
+</html>

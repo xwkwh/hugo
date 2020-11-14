@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="Toby">
+    <meta name="description" content="categories: 计算机 tags: - 计算机 - Linux
+Linux常用命令 一、文件目录   ls 查看目录文件
+  cd 改变路径
+  pwd 显示当前路径
+  mkdir 新建路径
+  rm 删除文件
+-f, –force 忽略不存在的文件，从不给出提示。 -i, –interactive 进行交互式删除 -r, -R, –recursive 指示rm将参数中列出的全部目录和子目录均递归地删除。 -v, –verbose 详细显示进行的步骤   mv 移动文件
+  cp 复制
+  touch ： 新建空文件
+  cat：打印输出
+  nl：统计输入中的行号，和cat -n类似但有差别
+  more / less ：分页显示内容
+  head/tail ： 显示文件的头和尾内容">
+    <meta name="keywords" content="blog,developer,personal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux常用命令"/>
+<meta name="twitter:description" content="categories: 计算机 tags: - 计算机 - Linux
+Linux常用命令 一、文件目录   ls 查看目录文件
+  cd 改变路径
+  pwd 显示当前路径
+  mkdir 新建路径
+  rm 删除文件
+-f, –force 忽略不存在的文件，从不给出提示。 -i, –interactive 进行交互式删除 -r, -R, –recursive 指示rm将参数中列出的全部目录和子目录均递归地删除。 -v, –verbose 详细显示进行的步骤   mv 移动文件
+  cp 复制
+  touch ： 新建空文件
+  cat：打印输出
+  nl：统计输入中的行号，和cat -n类似但有差别
+  more / less ：分页显示内容
+  head/tail ： 显示文件的头和尾内容"/>
+
+    <meta property="og:title" content="Linux常用命令" />
+<meta property="og:description" content="categories: 计算机 tags: - 计算机 - Linux
+Linux常用命令 一、文件目录   ls 查看目录文件
+  cd 改变路径
+  pwd 显示当前路径
+  mkdir 新建路径
+  rm 删除文件
+-f, –force 忽略不存在的文件，从不给出提示。 -i, –interactive 进行交互式删除 -r, -R, –recursive 指示rm将参数中列出的全部目录和子目录均递归地删除。 -v, –verbose 详细显示进行的步骤   mv 移动文件
+  cp 复制
+  touch ： 新建空文件
+  cat：打印输出
+  nl：统计输入中的行号，和cat -n类似但有差别
+  more / less ：分页显示内容
+  head/tail ： 显示文件的头和尾内容" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://xwkwh.github.io/hugo/posts/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" />
+<meta property="article:published_time" content="2018-06-21T21:10:26+00:00" />
+<meta property="article:modified_time" content="2018-06-21T21:10:26+00:00" />
+
+
+    <title>
+  Linux常用命令 · Toby
+</title>
+
+    
+      <link rel="canonical" href="http://xwkwh.github.io/hugo/posts/linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css" integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="/hugo/css/coder.min.f01c647a0d25b40da992a37c3376291185eed8a50ced8c26cc2c0bcfe38c97df.css" integrity="sha256-8Bxkeg0ltA2pkqN8M3YpEYXu2KUM7YwmzCwLz&#43;OMl98=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+      
+        
+        
+        <link rel="stylesheet" href="/hugo/css/coder-dark.min.126ad3988d46bdae6217a11105b53c9662bca05f39d42d3c0fb366919d334620.css" integrity="sha256-EmrTmI1Gva5iF6ERBbU8lmK8oF851C08D7NmkZ0zRiA=" crossorigin="anonymous" media="screen" />
+      
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="/hugo/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/hugo/img/favicon-16x16.png" sizes="16x16">
+
+    <link rel="apple-touch-icon" href="/hugo/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/hugo/images/apple-touch-icon.png">
+
+    
+      <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+    
+
+    <meta name="generator" content="Hugo 0.79.0-DEV" />
+  </head>
+
+  
+  
+    
+  
+  <body class="colorscheme-dark"
+        onload=" twemoji.parse(document.body); "
+  >
+    
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/hugo">
+      Toby
+    </a>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/hugo/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/hugo/contact/">Contact me</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/hugo/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link" href="/hugo/projects">Projects</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Linux常用命令</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              <time datetime='2018-06-21T21:10:26Z'>
+                June 21, 2018
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              2-minute read
+            </span>
+          </div>
+          
+          
+          
+        </div>
+      </header>
+
+      <div>
+        
+        <p>categories: 计算机
+tags:
+- 计算机
+- Linux</p>
+<h2 id="linux常用命令">Linux常用命令</h2>
+<h3 id="一文件目录">一、文件目录</h3>
+<ol>
+<li>
+<p>ls 查看目录文件</p>
+</li>
+<li>
+<p>cd 改变路径</p>
+</li>
+<li>
+<p>pwd  显示当前路径</p>
+</li>
+<li>
+<p>mkdir  新建路径</p>
+</li>
+<li>
+<p>rm  删除文件</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">-f, –force 		  忽略不存在的文件，从不给出提示。 
+-i, –interactive   进行交互式删除 
+-r, -R, –recursive 指示rm将参数中列出的全部目录和子目录均递归地删除。 
+-v, –verbose       详细显示进行的步骤 
+</code></pre></div></li>
+<li>
+<p>mv  移动文件</p>
+</li>
+<li>
+<p>cp  复制</p>
+</li>
+<li>
+<p>touch  ： 新建空文件</p>
+</li>
+<li>
+<p>cat：打印输出</p>
+</li>
+<li>
+<p>nl：统计输入中的行号，和cat -n类似但有差别</p>
+</li>
+<li>
+<p>more / less ：分页显示内容</p>
+</li>
+<li>
+<p>head/tail ： 显示文件的头和尾内容</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">-n&lt;数字&gt;：指定显示头部内容的行数；
+-c&lt;字符数&gt;：指定显示头部内容的字符数；
+-v：总是显示文件名的头信息；
+-q：不显示文件名的头信息。
+</code></pre></div></li>
+</ol>
+<h3 id="二查找">二、查找</h3>
+<ol>
+<li>
+<p>which：在PATH变量指定的路径中，搜索某个系统命令的位置</p>
+</li>
+<li>
+<p>whereis：用于程序名的搜索，</p>
+</li>
+<li>
+<p>locate 相当于find -name的缩写  **locate 路径 **</p>
+</li>
+<li>
+<p>find: find   path   -optio</p>
+</li>
+<li>
+<p>grep：Global Regular Expression Prin 可以<strong>指定文件中搜索特定的内容，并将含有这些内容的行标准输出</strong></p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">－c：只输出匹配行的计数。
+－I：不区分大小写（只适用于单字符）。
+－h：查询多文件时不显示文件名。
+－l：查询多文件时只输出包含匹配字符的文件名。
+－n：显示匹配行及行号。
+－s：不显示不存在或无匹配文本的错误信息。
+－v：显示不包含匹配文本的所有行。
+</code></pre></div></li>
+</ol>
+<h3 id="三压缩解压">三、压缩解压</h3>
+<ol>
+<li>tar</li>
+<li>zip</li>
+</ol>
+<h3 id="四文件权限">四、文件权限</h3>
+<ol>
+<li>
+<p>chmod</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">r=4,w=2,x=1
+chmod xxx filename
+</code></pre></div></li>
+<li>
+<p>chgrp 更改文件拥有组</p>
+</li>
+<li>
+<p>chown 更改文件拥有者</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">chown [-R] user dir/file
+chown [-R] user:group dir/file
+</code></pre></div></li>
+</ol>
+<h3 id="五磁盘存储进程">五、磁盘存储进程</h3>
+<ol>
+<li>
+<p>top ：性能分析工具，能够实时显示系统中各个进程的资源占用状况</p>
+</li>
+<li>
+<p>ps：瞬间进程 (process) 的动态</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">ps [options] [--help]
+   
+-A：列出所有的进程。 
+-l：显示长列表。 
+-m：显示内存信息。 
+-w：显示加宽可以显示较多的信息。 
+-e：显示所有进程。 
+a：显示终端上的所有进程,包括其它用户的进程。 
+-au：显示较详细的信息。 
+-aux：显示所有包含其它使用者的进程。
+</code></pre></div></li>
+<li>
+<p>free： 显示内存使用</p>
+</li>
+<li>
+<p>pmap :可以根据进程查看进程相关信息占用的内存情况，(进程号可以通过ps查看)如下所示：</p>
+<p><code>pmap -d 14596 </code></p>
+</li>
+<li>
+<p>vmstat ：Linux中监控内存的常用工具，可对操作系统的虚拟内存、进程、CPU等的整体情况进行监视.</p>
+</li>
+<li>
+<p>iostat 通过观察设备的活跃时间和他们平均传输率之间的关系来监视系统的输入/输出</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">iostat -d -k 1 10         #查看TPS和吞吐量信息(磁盘读写速度单位为KB)
+iostat -d -m 2            #查看TPS和吞吐量信息(磁盘读写速度单位为MB)
+iostat -d -x -k 1 10      #查看设备使用率（%util）、响应时间（await） iostat -c 1 10 #查看cpu状态
+</code></pre></div></li>
+<li>
+<p>lsof</p>
+</li>
+</ol>
+<h3 id="六网络">六、网络</h3>
+<ol>
+<li>
+<p>ifconfig  查看设置网卡参数</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">ifconfig eth0 up/down   启用或关闭指定网卡
+ifconfig eth0      显示网卡信息
+</code></pre></div></li>
+<li>
+<p>route 查看路由以及添加路由</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">route -n  显示路由表
+route add/del default gw 192.168.120.1  删除和添加设置默认网关
+route add -net 172.25.0.0 netmask 255.255.0.0 dev eth0 添加网关
+</code></pre></div></li>
+<li>
+<p>ping  测试网络连通性</p>
+</li>
+<li>
+<p>telnet</p>
+</li>
+<li>
+<p>netstat 查看网络状态</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">1 netstat
+2 netstat -nu 只显示udp / -t只显示tcp
+3 netstat -r  显示路由表，作用同route  
+</code></pre></div></li>
+<li>
+<p>traceroute   查看路由轨迹</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">traceroute www.163.com
+traceroute -n www.163.com  显示IP地址，不查主机名
+</code></pre></div></li>
+<li>
+<p>rcp</p>
+</li>
+<li>
+<p>scp</p>
+</li>
+<li>
+<p>ss 查看网络状态</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">ss  -s  我想查看当前服务器的网络连接统计
+ss -l   我想查看所有打开的网络端口
+ss -a   查看这台服务器上所有的socket连接
+</code></pre></div></li>
+<li>
+<p>nslookup，dns查看</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">nslookup  baidu.com
+nslookup -qt=mx 163.com 8.8.8.8
+</code></pre></div></li>
+</ol>
+<h3 id="七其他">七、其他</h3>
+<ol>
+<li>
+<p>ln</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">ln /etc/passwd passwd  创建硬链接
+ln -s 创建软链接
+</code></pre></div></li>
+<li>
+<p>| 管道</p>
+</li>
+<li>
+<p>diff</p>
+</li>
+<li>
+<p>sed： 批处理文本文件</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">grep 更适合单纯的查找或匹配文本
+sed 更适合编辑匹配到的文本
+awk 更适合格式化文本，对文本进行较复杂格式处理
+</code></pre></div></li>
+<li>
+<p>date</p>
+</li>
+<li>
+<p>cal</p>
+</li>
+<li>
+<p>wc 统计</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">wc [-lwm]
+选项：
+-l  ：仅列出行；
+-w  ：仅列出多少字(英文单字)；
+-m  ：多少字符；
+</code></pre></div></li>
+<li>
+<p>watch</p>
+</li>
+<li>
+<p>at 在一个指定的时间执行一个指定任务，只能执行一次，且需要开启atd进程</p>
+</li>
+<li>
+<p>wget</p>
+</li>
+</ol>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "yourdiscussshortname" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+        <p>Enter a text here.</p>
+      
+      
+        ©
+        
+          2019 -
+        
+        2020
+         Toby 
+      
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+
+    </main>
+
+    
+      
+        
+        <script src="/hugo/js/dark-mode.min.0213e1773e6d1c5a644f847c67a6f8abac49a3776e2976f6008038af8c5b76a1.js"></script>
+      
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+  </body>
+
+</html>
