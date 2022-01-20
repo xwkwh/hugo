@@ -6,7 +6,44 @@
     <description>Recent content on Toby</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Jan 2020 21:10:26 +0000</lastBuildDate><atom:link href="http://xwkwh.github.io/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 20 Jan 2022 14:50:00 +0800</lastBuildDate><atom:link href="http://xwkwh.github.io/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Emacs_install</title>
+      <link>http://xwkwh.github.io/hugo/posts/emacs_install/</link>
+      <pubDate>Thu, 20 Jan 2022 14:50:00 +0800</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/posts/emacs_install/</guid>
+      <description> Mac  emacs for mac
+  linux   Win   </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://xwkwh.github.io/hugo/posts/emacs_build/</link>
+      <pubDate>Thu, 20 Jan 2022 14:49:26 +0800</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/posts/emacs_build/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>http://xwkwh.github.io/hugo/about/</link>
+      <pubDate>Wed, 04 Nov 2020 21:48:23 +0800</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/about/</guid>
+      <description>Nothing </description>
+    </item>
+    
+    <item>
+      <title>My First Post</title>
+      <link>http://xwkwh.github.io/hugo/posts/my-first-post/</link>
+      <pubDate>Wed, 04 Nov 2020 10:18:30 +0800</pubDate>
+      
+      <guid>http://xwkwh.github.io/hugo/posts/my-first-post/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Linux Shell Learning</title>
       <link>http://xwkwh.github.io/hugo/posts/linux-shell/</link>

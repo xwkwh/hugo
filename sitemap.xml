@@ -3,17 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://xwkwh.github.io/hugo/posts/linux-shell/</loc>
-    <lastmod>2020-01-02T21:10:26+00:00</lastmod>
+    <loc>http://xwkwh.github.io/hugo/posts/emacs_install/</loc>
+    <lastmod>2022-01-20T14:50:00+08:00</lastmod>
   </url>
   
   <url>
     <loc>http://xwkwh.github.io/hugo/posts/</loc>
-    <lastmod>2020-01-02T21:10:26+00:00</lastmod>
+    <lastmod>2022-01-20T14:50:00+08:00</lastmod>
   </url>
   
   <url>
     <loc>http://xwkwh.github.io/hugo/</loc>
+    <lastmod>2022-01-20T14:50:00+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://xwkwh.github.io/hugo/posts/emacs_build/</loc>
+    <lastmod>2022-01-20T14:49:26+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://xwkwh.github.io/hugo/about/</loc>
+    <lastmod>2020-11-04T21:48:23+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://xwkwh.github.io/hugo/posts/my-first-post/</loc>
+    <lastmod>2020-11-04T10:18:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://xwkwh.github.io/hugo/posts/linux-shell/</loc>
     <lastmod>2020-01-02T21:10:26+00:00</lastmod>
   </url>
   
