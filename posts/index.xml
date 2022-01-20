@@ -8,13 +8,14 @@
     <language>en-us</language>
     <lastBuildDate>Thu, 20 Jan 2022 14:50:00 +0800</lastBuildDate><atom:link href="http://xwkwh.github.io/hugo/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Emacs_install</title>
+      <title>Emacs install Memo</title>
       <link>http://xwkwh.github.io/hugo/posts/emacs_install/</link>
       <pubDate>Thu, 20 Jan 2022 14:50:00 +0800</pubDate>
       
       <guid>http://xwkwh.github.io/hugo/posts/emacs_install/</guid>
-      <description> Mac  emacs for mac
-  linux   Win   </description>
+      <description>Mac  emacs for mac
+  linux    install some dependency
+  # Note: This installs dependencies for X11 as well. Change this and the ./configure below if you don&amp;#39;t want any X11 deps sudo yum install \  GConf2-devel \  Xaw3d-devel \  dbus-devel \  dbus-glib-devel \  dbus-python \  gcc \  giflib-devel \  gnutls-devel \  gpm-devel \  gtk+-devel \  gtk2-devel \  ImageMagick \  ImageMagick-devel \  jansson-devel \  libX11-devel \  libXft-devel \  libXpm-devel \  libjpeg-devel \  libpng-devel \  libtiff-devel \  libungif-devel \  make \  ncurses-devel \  pkgconfig \  texi2html \  texinfo  clone source code  git clone https://git.</description>
     </item>
     
     <item>

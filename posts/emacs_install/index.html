@@ -7,18 +7,21 @@
     <meta http-equiv="Content-Language" content="en">
 
     <meta name="author" content="Toby">
-    <meta name="description" content=" Mac  emacs for mac
-  linux   Win   ">
+    <meta name="description" content="Mac  emacs for mac
+  linux    install some dependency
+  # Note: This installs dependencies for X11 as well. Change this and the ./configure below if you don&#39;t want any X11 deps sudo yum install \  GConf2-devel \  Xaw3d-devel \  dbus-devel \  dbus-glib-devel \  dbus-python \  gcc \  giflib-devel \  gnutls-devel \  gpm-devel \  gtk&#43;-devel \  gtk2-devel \  ImageMagick \  ImageMagick-devel \  jansson-devel \  libX11-devel \  libXft-devel \  libXpm-devel \  libjpeg-devel \  libpng-devel \  libtiff-devel \  libungif-devel \  make \  ncurses-devel \  pkgconfig \  texi2html \  texinfo  clone source code  git clone https://git.">
     <meta name="keywords" content="blog,developer,personal">
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Emacs_install"/>
-<meta name="twitter:description" content=" Mac  emacs for mac
-  linux   Win   "/>
+<meta name="twitter:title" content="Emacs install Memo"/>
+<meta name="twitter:description" content="Mac  emacs for mac
+  linux    install some dependency
+  # Note: This installs dependencies for X11 as well. Change this and the ./configure below if you don&#39;t want any X11 deps sudo yum install \  GConf2-devel \  Xaw3d-devel \  dbus-devel \  dbus-glib-devel \  dbus-python \  gcc \  giflib-devel \  gnutls-devel \  gpm-devel \  gtk&#43;-devel \  gtk2-devel \  ImageMagick \  ImageMagick-devel \  jansson-devel \  libX11-devel \  libXft-devel \  libXpm-devel \  libjpeg-devel \  libpng-devel \  libtiff-devel \  libungif-devel \  make \  ncurses-devel \  pkgconfig \  texi2html \  texinfo  clone source code  git clone https://git."/>
 
-    <meta property="og:title" content="Emacs_install" />
-<meta property="og:description" content=" Mac  emacs for mac
-  linux   Win   " />
+    <meta property="og:title" content="Emacs install Memo" />
+<meta property="og:description" content="Mac  emacs for mac
+  linux    install some dependency
+  # Note: This installs dependencies for X11 as well. Change this and the ./configure below if you don&#39;t want any X11 deps sudo yum install \  GConf2-devel \  Xaw3d-devel \  dbus-devel \  dbus-glib-devel \  dbus-python \  gcc \  giflib-devel \  gnutls-devel \  gpm-devel \  gtk&#43;-devel \  gtk2-devel \  ImageMagick \  ImageMagick-devel \  jansson-devel \  libX11-devel \  libXft-devel \  libXpm-devel \  libjpeg-devel \  libpng-devel \  libtiff-devel \  libungif-devel \  make \  ncurses-devel \  pkgconfig \  texi2html \  texinfo  clone source code  git clone https://git." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://xwkwh.github.io/hugo/posts/emacs_install/" />
 <meta property="article:published_time" content="2022-01-20T14:50:00+08:00" />
@@ -26,7 +29,7 @@
 
 
     <title>
-  Emacs_install · Toby
+  Emacs install Memo · Toby
 </title>
 
     
@@ -129,7 +132,7 @@
     <article>
       <header>
         <div class="post-title">
-          <h1 class="title">Emacs_install</h1>
+          <h1 class="title">Emacs install Memo</h1>
         </div>
         <div class="post-meta">
           <div class="date">
@@ -165,11 +168,78 @@ Mac
 <h2 id="headline-2">
 linux
 </h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<ul>
+<li>
+<p>install some dependency</p>
+</li>
+</ul>
+<div class="src src-shell">
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">  <span style="color:#007f7f"># Note: This installs dependencies for X11 as well.  Change this and the ./configure below if you don&#39;t want any X11 deps</span>
+  sudo yum install <span style="color:#0ff;font-weight:bold">\
+</span><span style="color:#0ff;font-weight:bold"></span>      GConf2-devel <span style="color:#0ff;font-weight:bold">\
+</span><span style="color:#0ff;font-weight:bold"></span>      Xaw3d-devel <span style="color:#0ff;font-weight:bold">\
+</span><span style="color:#0ff;font-weight:bold"></span>      dbus-devel <span style="color:#0ff;font-weight:bold">\
+</span><span style="color:#0ff;font-weight:bold"></span>      dbus-glib-devel <span style="color:#0ff;font-weight:bold">\
+</span><span style="color:#0ff;font-weight:bold"></span>      dbus-python <span style="color:#0ff;font-weight:bold">\
+</span><span style="color:#0ff;font-weight:bold"></span>      gcc <span style="color:#0ff;font-weight:bold">\
+</span><span style="color:#0ff;font-weight:bold"></span>      giflib-devel <span style="color:#0ff;font-weight:bold">\
+</span><span style="color:#0ff;font-weight:bold"></span>      gnutls-devel <span style="color:#0ff;font-weight:bold">\
+</span><span style="color:#0ff;font-weight:bold"></span>      gpm-devel <span style="color:#0ff;font-weight:bold">\
+</span><span style="color:#0ff;font-weight:bold"></span>      gtk+-devel <span style="color:#0ff;font-weight:bold">\
+</span><span style="color:#0ff;font-weight:bold"></span>      gtk2-devel <span style="color:#0ff;font-weight:bold">\
+</span><span style="color:#0ff;font-weight:bold"></span>      ImageMagick <span style="color:#0ff;font-weight:bold">\
+</span><span style="color:#0ff;font-weight:bold"></span>      ImageMagick-devel <span style="color:#0ff;font-weight:bold">\
+</span><span style="color:#0ff;font-weight:bold"></span>      jansson-devel <span style="color:#0ff;font-weight:bold">\
+</span><span style="color:#0ff;font-weight:bold"></span>      libX11-devel <span style="color:#0ff;font-weight:bold">\
+</span><span style="color:#0ff;font-weight:bold"></span>      libXft-devel <span style="color:#0ff;font-weight:bold">\
+</span><span style="color:#0ff;font-weight:bold"></span>      libXpm-devel <span style="color:#0ff;font-weight:bold">\
+</span><span style="color:#0ff;font-weight:bold"></span>      libjpeg-devel <span style="color:#0ff;font-weight:bold">\
+</span><span style="color:#0ff;font-weight:bold"></span>      libpng-devel <span style="color:#0ff;font-weight:bold">\
+</span><span style="color:#0ff;font-weight:bold"></span>      libtiff-devel <span style="color:#0ff;font-weight:bold">\
+</span><span style="color:#0ff;font-weight:bold"></span>      libungif-devel <span style="color:#0ff;font-weight:bold">\
+</span><span style="color:#0ff;font-weight:bold"></span>      make <span style="color:#0ff;font-weight:bold">\
+</span><span style="color:#0ff;font-weight:bold"></span>      ncurses-devel <span style="color:#0ff;font-weight:bold">\
+</span><span style="color:#0ff;font-weight:bold"></span>      pkgconfig <span style="color:#0ff;font-weight:bold">\
+</span><span style="color:#0ff;font-weight:bold"></span>      texi2html <span style="color:#0ff;font-weight:bold">\
+</span><span style="color:#0ff;font-weight:bold"></span>      texinfo</code></pre></div>
 </div>
-<div id="outline-container-headline-3" class="outline-2">
-<h2 id="headline-3">
+<div id="outline-container-headline-3" class="outline-3">
+<h3 id="headline-3">
+clone source code
+</h3>
+<div id="outline-text-headline-3" class="outline-text-3">
+<div class="src src-shell">
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">  git clone https://git.savannah.gnu.org/git/emacs.git
+  <span style="color:#fff;font-weight:bold">cd</span> emacs
+  // checkout version
+  git tag
+  git checkout emacs-27.1</code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-3">
+<h3 id="headline-4">
+build &amp; install
+</h3>
+<div id="outline-text-headline-4" class="outline-text-3">
+<div class="src src-shell">
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">  ./autogen.sh
+  ./configure --without-selinux
+
+  make -j4 &amp;&amp; sudo make install</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-2">
+<h2 id="headline-5">
 Win
 </h2>
+<div id="outline-text-headline-5" class="outline-text-2">
+<p>refer to <a href="https://www.gnu.org/software/emacs/download.html#nonfree">emacs</a></p>
+</div>
 </div>
 
       </div>
